@@ -7,8 +7,9 @@ html[data-theme="dark"],
   --ls-secondary-background-color: #1c1c1c;
   --ls-tertiary-background-color: #121212;
   --ls-quaternary-background-color: #5a5a5a;
-
-  --ls-table-tr-even-background-color: #3f3f3f48;
+     
+  
+  --ls-table-tr-even-background-color: #3F3F48;
 
   --ls-block-properties-background-color: #3e3e3eab;
   --ls-page-properties-background-color: #3e3e3e;
@@ -49,6 +50,34 @@ html[data-theme="dark"],
   --color-level-6: #8e8e8e;
 }
 
+html[data-theme="dark"] .a  {
+    color: #767676;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.external-link {
+  	color: #767676;
+    border-bottom: 1px solid;
+    text-decoration: none;
+  	
+}
+
+html[data-theme="dark"] .cp__header a, html[data-theme="dark"] .cp__header button, html[data-theme="dark"] .cp__right-sidebar-topbar button {
+    opacity: 1;
+  	color: #767676
+}
+/* scrollbar */
+html[data-theme="dark"][data-color="logseq"] {
+    --tw-bg-opacity: 1;
+    background-color: #767676;
+    --ls-scrollbar-foreground-color: #767676;
+}
+
+html {
+    background-color: #767676;
+  	border-color: #767676;
+}
 /* Page reference */
 
 .page-reference .bracket {
