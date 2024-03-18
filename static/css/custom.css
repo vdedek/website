@@ -76,8 +76,38 @@ html[data-theme="dark"][data-color="logseq"] {
 
 html {
     background-color: #767676;
-  	border-color: #767676;
+  	border-color: #767676; 
 }
+
+ /*Help button - not possible in css*/
+/*
+.button:contains ("Help") {
+    display: none;
+} 
+
+.button.button.cp__right-sidebar-settings-btn[title="Help"] {
+    display: none;
+} 
+
+.cp__right-sidebar-topbar button[title="Help"] {
+    display: none;
+} 
+
+button[title="Help"] .cp__right-sidebar-topbar {
+    display: none;
+} */
+
+
+.button.button.cp__right-sidebar-settings-btn {
+  display: none; 			/*Hide all buttons in right menu*/
+}
+
+
+.ti-dots:before {
+    display: none;    		/*hidding the More menu*/
+}
+
+
 /* Page reference */
 
 .page-reference .bracket {

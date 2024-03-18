@@ -1,1 +1,7 @@
-
+/* .ui__icon, .ti, .ti-dots {
+    display: none;
+}
+*/
+.button.button.icon.toolbar-dots-btn {
+    display: none;
+}
