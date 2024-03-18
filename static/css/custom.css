@@ -1,5 +1,5 @@
 /* Dark theme global variables */
-
+ 
 html[data-theme="dark"],
 .dark-theme {
   background-color: black;
@@ -18,7 +18,7 @@ html[data-theme="dark"],
   --ls-secondary-border-color: white;
   --ls-tertiary-border-color: rgba(255, 255, 255, 0.1);
 
-  --ls-guideline-color: white;
+  --ls-guideline-color: black; /* changed from white */
 
   --ls-primary-text-color: white;
   --ls-secondary-text-color: white;
@@ -139,7 +139,7 @@ html[data-theme="dark"] ::selection {
 }
 
 /* Bullet container bullets */
-
+  
 html[data-theme="light"] .bullet-container .bullet {
   background-color: black;
 }
@@ -495,4 +495,15 @@ html[data-theme="light"] .cp__palette-main .chosen code:nth-child(2) {
 html[data-theme="dark"] .cp__palette-main .chosen code:nth-child(2) {
   background: black;
   color: white;
+}
+/* From Copilot: No bulletpoints */
+.ls-block > div > div > a > .bullet-container {
+    display: none !important;
+}
+
+/* Prevent single-letter words and common words from breaking at the end of lines */
+.ls-block {
+    white-space: nowrap;
+    hyphens: auto;
+    text-align: justify;
 }
