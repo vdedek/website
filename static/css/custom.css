@@ -16,3 +16,7 @@
   /* white-space: pre-wrap; */
   max-height: 7ch;
 }
+
+.mt-6.page-unlinked {
+  display: none;
+}
