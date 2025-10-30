@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Welcome</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    @font-face {
+      font-family: 'times_regular';
+      src: url('../assets/fonts/times-regular.woff') format('woff');
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --sat: env(safe-area-inset-top);
+      --sab: env(safe-area-inset-bottom);
+      --sal: env(safe-area-inset-left);
+      --sar: env(safe-area-inset-right);
+    }
+
+    html {
+      height: 100%;
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    body {
+      font-family: 'times_regular', serif;
+      background-color: #C0C0C0;
+      color: #000;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: calc(var(--sat, 0px) + 10px) calc(var(--sar, 0px) + 10px) calc(var(--sab, 0px) + 10px) calc(var(--sal, 0px) + 10px);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gif-container {
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      touch-action: none;
+      overflow: hidden;
+      padding: 10px;
+      gap: 8px;
+    }
+
+    #randomGif {
+      max-width: 100%;
+      max-height: calc(100% - 40px);
+      height: auto;
+      width: auto;
+      object-fit: contain;
+      touch-action: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .gif-info {
+      font-size: 12px;
+      color: #666;
+      padding: 4px 8px;
+      line-height: 1.4;
+      text-align: center;
+      word-break: break-word;
+      background-color: transparent;
+      position: relative;
+      z-index: 10;
+    }
+
+    .gif-info a {
+      color: #0000EE;
+      text-decoration: none;
+      padding: 2px;
+      display: inline-block;
+    }
+
+    .gif-info a:visited {
+      color: #551A8B;
+    }
+
+    @supports (-webkit-touch-callout: none) {
+      body {
+        height: -webkit-fill-available;
+      }
+    }
+
+    @media (hover: none) {
+      .gif-container, #randomGif {
+        cursor: default;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding: calc(var(--sat, 0px) + 5px) calc(var(--sar, 0px) + 5px) calc(var(--sab, 0px) + 5px) calc(var(--sal, 0px) + 5px);
+      }
+      
+      .gif-container {
+        padding: 5px;
+      }
+
+      .nav-area {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        z-index: 1000;
+        box-sizing: border-box;
+      }
+
+      .nav-table {
+        width: 95%;
+        max-width: none;
+        margin: 0 auto;
+        border-width: 2px;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      #randomGif {
+        max-height: calc(100% - 30px);
+      }
+
+      .gif-info {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gif-container" id="gifContainer">
+    <img id="randomGif" src="" alt="Loading..." role="button" aria-label="Click to enter">
+    <div class="gif-info" id="gifInfo">
+      Loading GIF information...
+    </div>
+  </div>
+  
+  <script>
+    // Prevent bounce scroll on iOS
+    document.body.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+    }, { passive: false });
+    
+    const gifs = [
+      {
+        file: '../assets/gif_intro/cristalazul.gif',
+        name: 'cristalazul.gif',
+        date: '7.8.2009',
+        source: 'destino22080',
+        archive: 'https://web.archive.org/web/20090807190720/http://geocities.com/destino22080/Aries.html'
+      },
+      {
+        file: '../assets/gif_intro/orb.gif',
+        name: 'orb.gif',
+        date: '19.4.1997',
+        source: 'SunsetStrip/Towers/7150',
+        archive: 'https://web.archive.org/web/19970419201222/http://www5.geocities.com:80/SunsetStrip/Towers/7150/orb.gif'
+      },
+      {
+        file: '../assets/gif_intro/jfsphere.gif',
+        name: 'jfsphere.gif',
+        date: '26.10.2009',
+        source: 'mixed_dragon',
+        archive: 'https://web.archive.org/web/20091026101804/http://geocities.com/mixed_dragon/'
+      },
+      {
+        file: '../assets/gif_intro/star.gif',
+        name: 'star.gif',
+        date: '27.10.2009',
+        source: 'buscosos',
+        archive: 'https://web.archive.org/web/20091027102323/http://geocities.com/buscosos/home_archivos/M2.htm'
+      },
+      {
+        file: '../assets/gif_intro/anm_torch.gif',
+        name: 'anm_torch.gif',
+        date: '19.4.2005',
+        source: 'foahp',
+        archive: 'https://web.archive.org/web/20050419004223/http://geocities.com/foahp/ngear.htm'
+      },
+      {
+        file: '../assets/gif_intro/Obstacles1.gif',
+        name: 'Obstacles1.gif',
+        date: '29.8.2009',
+        source: 'roughsleepers',
+        archive: 'https://web.archive.org/web/20090829083846/http://geocities.com/roughsleepers/index'
+      },
+      {
+        file: '../assets/gif_intro/elephnt1_5495.gif',
+        name: 'elephnt1_5495.gif',
+        date: '24.6.2009',
+        source: 'jugaphilip',
+        archive: 'https://web.archive.org/web/20090724125714/http://ca.geocities.com/jugaphilip/Page1.htm'
+      },
+      {
+        file: '../assets/gif_intro/LIGHTING.gif',
+        name: 'LIGHTING.gif',
+        date: '21.10.2009',
+        source: 'bombillyo_2003',
+        archive: 'https://web.archive.org/web/20091021095648/http://geocities.com/bombillyo_2003/index.html'
+      },
+      {
+        file: '../assets/gif_intro/enterCLR.gif',
+        name: 'enterCLR.gif',
+        date: '21.10.2009',
+        source: 'bombillyo_2003',
+        archive: 'https://web.archive.org/web/20091021095648/http://geocities.com/bombillyo_2003/index.html'
+      },
+      {
+        file: '../assets/gif_intro/lightning.gif',
+        name: 'lightning.gif',
+        date: '2.9.2009',
+        source: 'moomin_trolluk',
+        archive: 'https://web.archive.org/web/20090902193929/http://geocities.com/moomin_trolluk/'
+      },
+      {
+        file: '../assets/gif_intro/CITY.gif',
+        name: 'CITY.gif',
+        date: '29.8.2009',
+        source: 'stormykay2121',
+        archive: 'https://web.archive.org/web/20090829102515/http://geocities.com/stormykay2121/ME.html'
+      }
+    ];
+    
+    // Select random GIF
+    const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+    
+    // Set the image source
+    document.getElementById('randomGif').src = randomGif.file;
+    
+    // Set the GIF info
+    document.getElementById('gifInfo').innerHTML = 
+      `${randomGif.name} • ${randomGif.date} • @http://geocities.com/<a href="${randomGif.archive}" target="_blank">${randomGif.source}</a>`;
+    
+    // Handle both click and touch events
+    const gifContainer = document.getElementById('gifContainer');
+    const handleInteraction = (e) => {
+      // Allow clicks on links to work normally (gif source links)
+      if (e.target.tagName === 'A' || e.target.closest('a')) {
+        return; // Let the link work normally
+      }
+      
+      e.preventDefault();
+      window.location.href = 'work.html';
+    };
+
+    gifContainer.addEventListener('click', handleInteraction);
+    gifContainer.addEventListener('touchend', handleInteraction, { passive: false });
+  </script>
+</body>
+</html> 

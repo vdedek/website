@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changeling - Viktor Dedek</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body class="work-page project-page">
+  <!-- Rain Container -->
+  <div class="rain-container" id="rainContainer"></div>
+
+  <!-- Gallery Modal -->
+  <div id="galleryModal" class="gallery-modal">
+    <span class="gallery-close">&times;</span>
+    <button class="gallery-nav gallery-prev">&#10094;</button>
+    <button class="gallery-nav gallery-next">&#10095;</button>
+    <div class="gallery-modal-content">
+      <img id="galleryImage" src="" alt="">
+    </div>
+    <div class="gallery-counter">
+      <span id="galleryCounter">1 / 8</span>
+    </div>
+  </div>
+
+  <nav class="nav-area">
+    <table class="nav-table" cellspacing="1" cellpadding="0">
+      <tr>
+        <td class="nav-cell">
+          <a href="../work.html" class="nav-link">
+            <img src="../../assets/gif_intro/Lightningfast1.gif" alt="Work" class="nav-gif">
+          </a>
+        </td>
+        <td class="nav-cell">
+          <a href="../exhibitions.html" class="nav-link">
+            <img src="../../assets/gif_intro/rollingpin_rolling_lg_clr.gif" alt="Exhibitions" class="nav-gif">
+          </a>
+        </td>
+        <td class="nav-cell">
+          <a href="../about.html" class="nav-link">
+            <img src="../../assets/gif_intro/anm_torch.gif" alt="About" class="nav-gif">
+          </a>
+        </td>
+      </tr>
+    </table>
+    
+    <div class="filter-table-wrapper">
+      <div class="scroll-left"></div>
+      <div class="scroll-right"></div>
+      <table class="filter-table" cellspacing="1" cellpadding="0">
+        <tr>
+          <td class="filter-cell">Hidden</td>
+        </tr>
+      </table>
+    </div>
+  </nav>
+
+  <table class="projects-table" cellspacing="1" cellpadding="0">
+    <!-- Project Title -->
+    <tr>
+      <td class="content-cell">
+        <div class="project-title">▓ Changeling</div>
+      </td>
+    </tr>
+    <!-- Hero Image -->
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <div class="hero-image" style="margin: 0; padding: 0;" onclick="openGallery(0)">
+          <img src="../../assets/images/Changeling/full/changeling-1-full.jpg" alt="Changeling hero image" title="Měňavec - voskový model 6" style="width: 100%; height: auto; display: block;">
+        </div>
+      </td>
+    </tr>
+    <!-- Project Info -->
+    
+    <tr>
+      <td class="content-cell">
+        <div class="metadata-chips-container">
+          <span class="metadata-chip">Type: Installation, Audio</span> <span class="metadata-chip">Year: 2024</span> <span class="metadata-chip">Materials: digital photography, audio recording, portable radio</span> <span class="metadata-chip">Duration: 14min</span> <a href="https://soundcloud.com/viktor-dedek-106155248/menavec-changeling-radio-cut" target="_blank" class="metadata-chip metadata-chip-link">Listen to audio (CZ) ↗</a>
+        </div>
+      </td>
+    </tr>
+
+
+        <tr>
+      <td class="content-cell">
+        <div class="section-header">Exhibition History</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <a href="https://www.dum-umeni.cz/en/your-addiction-is-the-message/t9741" target="_blank" class="metadata-chip metadata-chip-link" style="display: block; text-align: left; padding: 12px 16px; margin: 8px 0;">
+          Dec 2024-Feb 2025: Group Exhibition "Addiction Is the Message", Dům umění města Brna<br>Dům umění města Brna, Brno, Czech Republic ↗
+        </a>
+        <a href="https://www.techlib.cz/cs/2905-galerie" target="_blank" class="metadata-chip metadata-chip-link" style="display: block; text-align: left; padding: 12px 16px; margin: 8px 0;">
+          Feb-Mar 2025: Group Exhibition "Hranice člověka", Galerie NTK<br>Galerie NTK, Praha, Czech Republic ↗
+        </a>
+      </td>
+    </tr>
+
+    <!-- Text z katalogu k výstavě Hranice člověka (Galerie NTK) od Petra Filipová (Read More) -->
+    <tr>
+      <td class="content-cell">
+        <div class="section-header">Text z katalogu k výstavě Hranice člověka (Galerie NTK) od Petra Filipová</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell read-more-cell">
+        <div class="body-text">Platí-li, že jsme ustavičným sebeutvářením, a že tedy naše „já" podléhá neustálým změnám, pak ovšem také platí, že ohledávání hranic vlastního aktuálního „já", onoho „já", jímž jsme právě tady a právě teď, dost dobře není možné. Přítomnost je bezrozměrný bod mezi tím, co již bylo, a tím, co teprve nastane. Zpětným pohledem však můžeme sledovat cestu, která k současnému okamžiku vedla. Můžeme ohledávat stěny tunelu, jejichž proměnlivý tvar rýsoval měnící se obrys našich minulých „já".</div>
+        <details class="read-more-section">
+          <summary class="read-more-tab">
+            <svg class="read-more-borders" viewBox="0 0 100 25" preserveAspectRatio="none">
+              <line x1="12" y1="0" x2="88" y2="0" stroke="white" stroke-width="2" />
+              <line x1="12" y1="0" x2="0" y2="25" stroke="white" stroke-width="2" />
+              <line x1="88" y1="0" x2="100" y2="25" stroke="#808080" stroke-width="2" />
+            </svg>
+            <span class="read-more-text"></span>
+          </summary>
+          <div class="read-more-hidden">
+            <div class="body-text">V audiovizuální instalaci Viktora Dedka „Měňavec" se takto jednoduše pojatý tunel mění v labyrint. Vyprávění, zaznívající z rozhlasového přijímače, meandruje mezi fragmenty vzpomínek a úvah, které spojuje hlas vypravěče. Jedná se ale skutečně o jeden jediný hlas? Proměny perspektiv a intertextuální přesahy (Dedek na několika místech do svého textu zakomponovává citace ze slavného cyberpunkového románu Williama Gibsona Neuromancer) jako by naznačovaly, že zde ve skutečnosti promlouvá hlasů více. Jako by zde paralelně hovořilo několik „já".</div><div class="body-text">Viktor Dedek ve své tvorbě konstantně zkoumá zkušenost hráče počítačových her. Nezajímá jej však jejich estetika (jakkoli s ní někdy pracuje jako s formálním prvkem svých děl), v centru jeho zájmu stojí samo hraní jako specifická činnost, anebo lépe: jako jakási forma existenciálního prostoru. Analýza hráčského prožitku a chování mu tak nabízí možnost zkoumat podmínky a procesy utváření „já". Ideálním prostředkem takové existenciální reflexe jsou pro něj hry, v nichž má hráč možnost modelovat svou vlastní postavu. Dedek odlišuje dva typy postav a tím i dva typy hráčů: Postavy s jasně definovanými vlastnostmi, které se sice v průběhu hraní mohou měnit ve své intenzitě (hráč postupně zvyšuje úroveň předem zvolených vlastností své postavy), ve svém základním výměru však zůstávají stejné, a postavy-měňavce, tedy postavy, které krátkodobě přejímají vlastnosti jiných postav a tím radikálně mění svou vlastní podstatu.</div><div class="body-text">Těmto dvěma typům postav pak odpovídají dva typy herního prožitku. Postupné budování postavy s předem definovanými vlastnostmi vede hráče ke ztotožnění s postavou, anebo spíše k rozplynutí hráčova „já" v „já" postavy. V určitém okamžiku tak hráč přestává hrát hru a, řečeno s Dedkem, hra začíná hrát hráče. To je hraní běžné, nereflektované, které slouží jako zábava a nabízí možnost realizovat v reálném životě neuskutečnitelné verze vlastního „já". Dedka však zajímá postava měňavce. Neustálé proměny vlastností totiž jakýkoli moment ztotožnění s postavou okamžitě ruší. Hráč nebuduje osobnost své postavy, protože jeho postava žádnou jednotnou osobnost nemá. Respektive osobnost jeho postavy sestává z jejích ustavičných proměn. Dedek v tomto smyslu pracuje s víceznačnou metaforou vosku. Vosk je pro něj jednak materiálem, který změnami teploty nabývá stále nových a nových tvarů, jednak hořlavou hmotou, která ve svých proměnách sytí mysl hráče. Vosk, přesněji řečeno jistý typ vosku, zároveň zajišťuje spojení hráče se světem hry (Dedkův gibsonovský hráč užívá vosk k zajištění konektivity senzorů připojených k jeho hlavě).</div><div class="body-text">Kde ale potom leží ona neustále ohledávaná „hranice člověka"? Měňavec permanentně mění svůj tvar, a tak v posledku žádné hranice nemá. Přesto zde ale cosi jako hranice existuje. Je to hranice hráčského reflektovaného prožitku, který se koncentruje ve zkušenosti reflektujícího „já". Takové „já" sice nemá jasně definované okraje, má ale svůj střed. Reflektuji se, tedy jsem, a jsem tím, kdo se reflektuje. Další hranice pak v Dedkově instalaci vede kdesi mezi světem objektivní reality a světem reality virtuální. Tato mez má ovšem specifickou podobu: Spíše než o bariéru se v jeho pojetí jedná o jakousi membránu, prostupnou oběma směry. Odděluje, ale také spojuje. Hranice ve smyslu hraničního přechodu. Měňavci herního světa totiž u Dedka zároveň obývají i svět reálný. Proměnlivý koncept „já" se uplatňuje tam i tady. Aby byl ale rozpoznán v realitě objektivní, musel být nejprve spatřen a zažit v realitě hry. Taková „hranice člověka" má tedy podobu konektivního vosku, který tento přechod umožňuje. A ten, kdo přechází, je reflektované „já"-měňavec. V posledku se tedy jedná o hranici jedinou. Střed je mezí a mez je přechodem, který je ovšem také zároveň mezí a středem. A tak stále dokola v neustávajícím cyklu sebereflexí, z nichž povstávají stále nová „já" nových a nových měňavců.</div>
+          </div>
+        </details>
+      </td>
+    </tr>
+
+    <!-- About project -->
+    <tr>
+      <td class="content-cell">
+        <div class="section-header">About project</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <div class="body-text">Měňavec je audiovizuální instalace sestavená ze sedmi černobílých fotografií a čtrnáctiminutové audio nahrávky. Fotografie zachycují makro snímky voskových modelů vytvořených speciální technikou, které díky ztrátě měřítka a černobílé unifikaci působí jako staré 3D modely z počítačových her. Někdy působí abstraktně, jindy jako postavy nebo objekty, které se neustále proměňují.</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <div class="body-text">Audio komponenta je narativem ve stylu rozhlasové hry, který prostřednictvím autoetnografické metody zkoumá fenomén počítačových her a hráčské identity. Vyprávění meandruje mezi fragmenty vzpomínek a úvah, které spojuje hlas vypravěče, a obsahuje intertextuální odkazy na knihu Neuromancer Williama Gibsona.</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell spacer-after">
+        <div class="body-text">Dílo kriticky zkoumá zkušenost hráče počítačových her jako specifickou formu existenciálního prostoru. V centru zájmu stojí postava "měňavce" - herní charakter schopný přejímat vlastnosti jiných postav, který se stává metaforou pro proměnlivý koncept identity v digitálním věku. Měňavec reprezentuje typ hráčské zkušenosti, která brání ztotožnění s jedinou postavou a ponechává prostor pro neustálou reflexi a proměnu.</div>
+      </td>
+    </tr>
+
+    
+    <!-- Documentation Gallery -->
+    <tr>
+      <td class="content-cell">
+        <div class="section-header">Documentation</div>
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="../../assets/images/Changeling/full/changeling-2-full.jpg" alt="Changeling view 1" title="Měňavec - instalace" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(1)">
+        <div class="image-caption">↪ <span>Hranice člověka, Galerie NTK, 2025</span></div>
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="../../assets/images/Changeling/full/changeling-3-full.jpg" alt="Changeling view 2" title="Měňavec - voskový model 1" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(2)">
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="../../assets/images/Changeling/full/changeling-4-full.jpg" alt="Changeling view 3" title="Měňavec - voskový model 2" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(3)">
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="../../assets/images/Changeling/full/changeling-5-full.jpg" alt="Changeling view 4" title="Měňavec - voskový model 3" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(4)">
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="../../assets/images/Changeling/full/changeling-6-full.jpg" alt="Changeling view 5" title="Měňavec - voskový model 4" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(5)">
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="../../assets/images/Changeling/full/changeling-7-full.jpg" alt="Changeling view 6" title="Měňavec - voskový model 5" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(6)">
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="../../assets/images/Changeling/full/changeling-8-full.jpg" alt="Changeling view 7" title="Měňavec - voskový model 7" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(7)">
+      </td>
+    </tr>
+
+  
+  <!-- Related Projects Table (Auto-generated) -->
+  <table class="projects-table" cellspacing="1" cellpadding="0">
+    <tr>
+      <td class="content-cell">
+        <div class="section-header">Related Projects</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <a href="the-last-advanced-movement-guide-you-will-need.html" class="related-project">
+          <span class="project-title">The Last Advanced Movement Guide You Will Need</span>
+          <span class="project-year">2019</span>
+        </a>
+        <div class="similarity-tags">#installation, #gaming, #narrative</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <a href="place-of-family.html" class="related-project">
+          <span class="project-title">Place of Family</span>
+          <span class="project-year">2019</span>
+        </a>
+        <div class="similarity-tags">#installation, #gaming, #narrative</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <a href="you-open-your-mouth-and-eye-and-a-feeling-of-fear-grows-in-you-as-the-strong-hands-of-the-executioner-with-the-blue-hood-and-the-golden-hammer-take-hold-of-you.html" class="related-project">
+          <span class="project-title">YOU OPEN YOUR MOUTH AND EYE AND A FEELING OF FEAR GROWS IN YOU AS THE STRONG HANDS OF THE EXECUTIONER WITH THE BLUE HOOD AND THE GOLDEN HAMMER TAKE HOLD OF YOU</span>
+          <span class="project-year">2023</span>
+        </a>
+        <div class="similarity-tags">#voice, #narrative, #transformation</div>
+      </td>
+    </tr>
+  </table>
+
+
+  <script src="../../assets/js/work.js"></script>
+  <script>
+    // Gallery functionality
+    const galleryImages = [
+      "../../assets/images/Changeling/full/changeling-1-full.jpg",
+      "../../assets/images/Changeling/full/changeling-2-full.jpg",
+      "../../assets/images/Changeling/full/changeling-3-full.jpg",
+      "../../assets/images/Changeling/full/changeling-4-full.jpg",
+      "../../assets/images/Changeling/full/changeling-5-full.jpg",
+      "../../assets/images/Changeling/full/changeling-6-full.jpg",
+      "../../assets/images/Changeling/full/changeling-7-full.jpg",
+      "../../assets/images/Changeling/full/changeling-8-full.jpg"
+    ];
+    
+    let currentImageIndex = 0;
+    const modal = document.getElementById('galleryModal');
+    const modalImg = document.getElementById('galleryImage');
+    const counter = document.getElementById('galleryCounter');
+    
+    function openGallery(index) {
+      currentImageIndex = index;
+      modal.style.display = 'flex';
+      updateGalleryImage();
+    }
+    
+    function updateGalleryImage() {
+      modalImg.src = galleryImages[currentImageIndex];
+      counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+    }
+    
+    document.querySelector('.gallery-close').onclick = function() {
+      modal.style.display = 'none';
+    }
+    
+    document.querySelector('.gallery-prev').onclick = function() {
+      currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateGalleryImage();
+    }
+    
+    document.querySelector('.gallery-next').onclick = function() {
+      currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+      updateGalleryImage();
+    }
+    
+    modal.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
+

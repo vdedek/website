@@ -1,0 +1,10 @@
+# Portfolio Build System Requirements
+
+# Image processing - responsive images, thumbnails, optimization
+Pillow>=10.0.0
+
+# For future enhancements (optional):
+# markdown>=3.4.0  # If you want to enhance .md parsing
+# beautifulsoup4>=4.12.0  # If you want to parse/manipulate HTML
+
+

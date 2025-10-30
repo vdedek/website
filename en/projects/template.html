@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Title - Viktor Dedek</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body class="work-page project-page">
+  <!-- Rain Container -->
+  <div class="rain-container" id="rainContainer"></div>
+
+  <!-- Gallery Modal -->
+  <div id="galleryModal" class="gallery-modal">
+    <span class="gallery-close">&times;</span>
+    <button class="gallery-nav gallery-prev">&#10094;</button>
+    <button class="gallery-nav gallery-next">&#10095;</button>
+    <div class="gallery-modal-content">
+      <img id="galleryImage" src="" alt="">
+    </div>
+    <div class="gallery-counter">
+      <span id="galleryCounter">1 / 1</span>
+    </div>
+  </div>
+
+  <nav class="nav-area">
+    <table class="nav-table" cellspacing="1" cellpadding="0">
+      <tr>
+        <td class="nav-cell">
+          <a href="../work.html" class="nav-link">
+            <img src="../../assets/gif_intro/Lightningfast1.gif" alt="Work" class="nav-gif">
+          </a>
+        </td>
+        <td class="nav-cell">
+          <a href="../exhibitions.html" class="nav-link">
+            <img src="../../assets/gif_intro/rollingpin_rolling_lg_clr.gif" alt="Exhibitions" class="nav-gif">
+          </a>
+        </td>
+        <td class="nav-cell">
+          <a href="../about.html" class="nav-link">
+            <img src="../../assets/gif_intro/anm_torch.gif" alt="About" class="nav-gif">
+          </a>
+        </td>
+      </tr>
+    </table>
+    
+    <div class="filter-table-wrapper">
+      <div class="scroll-left"></div>
+      <div class="scroll-right"></div>
+      <table class="filter-table" cellspacing="1" cellpadding="0">
+        <tr>
+          <td class="filter-cell">Hidden</td>
+        </tr>
+      </table>
+    </div>
+  </nav>
+
+  <table class="projects-table" cellspacing="1" cellpadding="0">
+    <!-- Project Title -->
+    <tr>
+      <td class="content-cell">
+        <div class="project-title">▓ Project Title</div>
+      </td>
+    </tr>
+    <!-- Hero Image -->
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <div class="hero-image" style="margin: 0; padding: 0;" onclick="openGallery(0)">
+          <img src="hero-image.jpg" alt="Project hero image" style="width: 100%; height: auto; display: block;">
+        </div>
+      </td>
+    </tr>
+    <!-- Project Info -->
+    
+    <tr>
+      <td class="content-cell">
+        <div class="metadata-chips-container">
+          <span class="metadata-chip">Type: Installation</span>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Curatorial Text -->
+
+    <!-- Documentation Gallery -->
+    <tr>
+      <td class="content-cell">
+        <div class="section-header">Documentation</div>
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="image1.jpg" alt="Project view 1" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(1)">
+      </td>
+    </tr>
+
+    <!-- Related Projects Table -->
+    <tr>
+      <td class="content-cell">
+        <div class="section-header">Related Projects</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <a href="related-project.html" class="related-project">
+          <span class="project-title">Related Project Name</span>
+          <span class="project-year">2023</span>
+        </a>
+        <div class="similarity-tags">#tag1, #tag2</div>
+      </td>
+    </tr>
+
+  </table>
+
+  <script src="../../assets/js/work.js"></script>
+  <script>
+    // Gallery functionality
+    const galleryImages = [
+      "hero-image.jpg"
+    ];
+    
+    let currentImageIndex = 0;
+    const modal = document.getElementById('galleryModal');
+    const modalImg = document.getElementById('galleryImage');
+    const counter = document.getElementById('galleryCounter');
+    
+    function openGallery(index) {
+      currentImageIndex = index;
+      modal.style.display = 'flex';
+      updateGalleryImage();
+    }
+    
+    function updateGalleryImage() {
+      modalImg.src = galleryImages[currentImageIndex];
+      counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+    }
+    
+    document.querySelector('.gallery-close').onclick = function() {
+      modal.style.display = 'none';
+    }
+    
+    document.querySelector('.gallery-prev').onclick = function() {
+      currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateGalleryImage();
+    }
+    
+    document.querySelector('.gallery-next').onclick = function() {
+      currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+      updateGalleryImage();
+    }
+    
+    modal.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
+

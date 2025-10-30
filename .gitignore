@@ -1,0 +1,83 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================================
+# LOGSEQ WORKSPACE - SELEKTIVNÍ COMMIT
+# ============================================================================
+# Commitujeme pouze .md soubory projektů (důležité metadata)
+# Ignorujeme originální obrázky, systémové soubory a JSON
+
+# Ignorovat celý logseq-data/ jako základ
+logseq-data/*
+
+# ALE povolit pages/ adresář
+!logseq-data/pages/
+
+# A povolit .md soubory v něm (metadata projektů)
+!logseq-data/pages/*.md
+
+# Ale ignorovat deprecated projekty
+logseq-data/pages/deprecated/
+
+# Vygenerované HTML stránky v en/ a cz/ jsou PUBLIC
+# Vygenerované optimalizované obrázky v assets/images/ jsou PUBLIC
+
+# Backup složky
+backup/
+*.bak
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+.~*
+
+# ============================================================================
+# OPTIONAL: Další soukromé věci
+# ============================================================================
+# Pokud máš nějaké osobní poznámky nebo drafty:
+# drafts/
+# notes/
+# personal/
+
+# Pokud nechceš commitovat některé dokumenty:
+# menavec_document.html
+
+

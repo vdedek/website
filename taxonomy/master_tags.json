@@ -1,0 +1,195 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-10-29",
+  "description": "Master tag taxonomy for portfolio projects. Tags are used for: 1) filtering on work.html, 2) finding related projects via similarity",
+  
+  "categories": {
+    "medium": {
+      "description": "Physical/presentation form of the work",
+      "tags": [
+        "installation",
+        "object",
+        "performance",
+        "artwork",
+        "photography"
+      ],
+      "note": "photography = photographic works as main medium"
+    },
+    
+    "technology": {
+      "description": "Technical methods and tools used",
+      "tags": [
+        "audio",
+        "3d",
+        "AI"
+      ],
+      "note": "audio = sound/audio works. 3d = 3D printing or 3D modeling. AI = AI-generated content"
+    },
+    
+    "gaming": {
+      "description": "Game-related concepts and specific games",
+      "tags": [
+        "gaming",
+        "gamebook",
+        "rpg",
+        "D&D"
+      ],
+      "specific_games": [
+        "TeamFortress2",
+        "DotA2"
+      ],
+      "note": "gaming = about video game culture, players, gaming as subject. gamebook = interactive book genre. Specific game names are separate tags. Use #interactive for works that are played (D&D sessions, participatory)"
+    },
+    
+    "actors_performance": {
+      "description": "Performance and actor-related work",
+      "tags": [
+        "actors",
+        "voice",
+        "motion-capture",
+        "performance",
+        "talk",
+        "costume"
+      ],
+      "note": "actors = physical performance. voice = voice acting/narration. motion-capture = mocap. talk = lectures/presentations"
+    },
+    
+    "narrative": {
+      "description": "Narrative and textual content types",
+      "tags": [
+        "narrative",
+        "text"
+      ],
+      "note": "narrative = storytelling/narrative content. text = physical written text as part of work (newspapers, labels, etc). Use #voice for spoken narration"
+    },
+    
+    "themes": {
+      "description": "Thematic and conceptual tags",
+      "tags": [
+        "dream",
+        "memory",
+        "meditation",
+        "transformation",
+        "worldbuilding",
+        "speculative",
+        "player",
+        "childhood",
+        "literature",
+        "theory"
+      ],
+      "note": "player tag refers to projects about gaming and player experience. childhood for works about childhood memories/experiences. literature for literary adaptations/references. theory for theoretical/academic work. speculative for speculative/alternative futures"
+    },
+    
+    "format_context": {
+      "description": "Exhibition and project context",
+      "tags": [
+        "collaboration",
+        "museum",
+        "research",
+        "interactive",
+        "public-space",
+        "workshop"
+      ],
+      "note": "collaboration tag indicates co-created projects (not solo). interactive for participatory/interactive works. public-space for works in outdoor/public urban spaces. workshop for teaching/educational sessions"
+    },
+    
+    "visual_tools": {
+      "description": "Visual and diagrammatic methods",
+      "tags": [
+        "flowchart"
+      ]
+    },
+    
+    "misc": {
+      "description": "Other specific tags",
+      "tags": [
+        "movement",
+        "gamification"
+      ]
+    }
+  },
+  
+  "deprecated_tags": {
+    "oneday": "Removed - use date metadata instead (start/end same day)",
+    "gamer": "Renamed to 'player' for clarity",
+    "3Dmodelling": "Standardized to '3d'",
+    "3Dprint": "Standardized to '3d'",
+    "3d/modeling": "Simplified to '3d'",
+    "3d/print": "Simplified to '3d'",
+    "audio/spatial": "Simplified to 'audio'",
+    "actors/voice": "Simplified to 'voice'",
+    "actors/motion": "Simplified to 'motion-capture'",
+    "narration": "Changed to 'voice' (for spoken narration)",
+    "narrative/spoken": "Changed to 'voice' (for spoken narration)",
+    "narrative/written": "Changed to 'text' (for physical written text)",
+    "performance/audio": "Removed - use 'performance' + 'audio'",
+    "performance/talk": "Simplified to 'talk'",
+    "storytelling": "Split to 'narrative' + 'interactive'",
+    "narrative/interactive": "Split to 'narrative' + 'interactive'",
+    "performance/game": "Split to 'performance' + 'game'",
+    "game": "Renamed to 'gaming' for clarity (about gaming culture, not playing)",
+    "game/map": "Removed - use 'gaming' for works about game maps",
+    "game/cosmetics": "Removed - use 'gaming' for works about in-game items",
+    "game/indie": "Removed - use 'gaming' for indie game contexts",
+    "game/book": "Renamed to 'gamebook' (single word for the genre)"
+  },
+  
+  "filter_mapping": {
+    "description": "How tags/metadata map to work.html filters",
+    "filters": {
+      "selected": {
+        "metadata_key": "featured",
+        "metadata_value": "yes"
+      },
+      "solo": {
+        "metadata_key": "type",
+        "metadata_value": "solo"
+      },
+      "group": {
+        "metadata_key": "type",
+        "metadata_value": "group"
+      },
+      "collaboration": {
+        "metadata_key": "tag",
+        "tag_value": "collaboration"
+      },
+      "performance": {
+        "metadata_key": "type",
+        "metadata_value": "performance"
+      },
+      "writing": {
+        "metadata_key": "tag",
+        "tag_value": "writing"
+      },
+      "audio": {
+        "metadata_key": "type",
+        "metadata_value": "audio"
+      },
+      "saga": {
+        "metadata_key": "series",
+        "metadata_value": "euromedieval-saga"
+      }
+    }
+  },
+  
+  "tag_relationships": {
+    "description": "Semantic relationships between tags for similarity scoring",
+    "hierarchical": {
+      "gaming": ["rpg", "D&D", "TeamFortress2", "DotA2", "gamebook"]
+    },
+    "related_clusters": {
+      "gaming_ecosystem": ["gaming", "rpg", "D&D", "player", "TeamFortress2", "DotA2", "gamebook"],
+      "audio_narrative": ["audio", "voice", "narrative"],
+      "physical_making": ["installation", "object", "3d"],
+      "conceptual_themes": ["dream", "memory", "transformation", "worldbuilding", "speculative"]
+    }
+  },
+  
+  "usage_guidelines": {
+    "per_project": "Use 3-7 tags per project for optimal specificity",
+    "hierarchical_tags": "Use specific tags (e.g., audio/spatial) when applicable, general tags (audio) when not",
+    "game_names": "Always include specific game names when project focuses on that game",
+    "new_tags": "New tags should be proposed via build script and reviewed before adding to master list"
+  }
+}
+

@@ -1,0 +1,72 @@
+filters:: {"contents" false}
+
+- ### 2024
+	- #### *[[House and Garden]]* Galerie UM, Prague #exhibition/group
+		- ##### Exhibited work: [[Players’ Table]]
+	-
+	- ####  [[Talk: Ludomancer]] Conference contribution at *[[Game Art x Game Studies - Between Ethics and Aesthetics Conference Session]]*. AVU, Prague  #performance/talk
+-
+- ### 2023
+	- #### *[[Ludomancer]]* Gočárova Galerie. Dům U Jonáše, Pardubice #exhibition/solo #actors/voice #audio
+	-
+	- #### [[Y: Lan Party]] Theatre X10, Prague #exhibition/group #exhibition/one-day #event
+		- ##### Performance: *[[YOU OPEN YOUR MOUTH AND EYE AND A FEELING OF FEAR GROWS IN YOU AS THE STRONG HANDS OF THE EXECUTIONER WITH THE BLUE HOOD AND THE GOLDEN HAMMER TAKE HOLD OF YOU]]* collab with Jan Boháč and Jonáš Richter. #performance/game #audio #collaboration
+	-
+	- #### [[Workshop: When the Paths Fork]] Hraničář Gallery, Ústí nad Labem #workshop
+-
+- ### 2022
+	- #### *[[Gamification]]* Hraničář Art Gallery, Ústí nad Labem #exhibition/group
+		- ##### *[[Public lecture: The Slippery Slope of Gaming Experience]]* #performance/talk
+		- ##### [[The Slippery Slope of Gaming Experience]] #artwork
+		-
+	- #### [[Ranger. Episode Three of the Euromedieval Saga]] Hraničář Art Gallery, Ústí nad Labem #collaboration #performance/game
+	-
+	- #### *[[Escape: The Search for Elves in the Age of Computer Games]]* Text and graphic works published in Klima magazine n° 05 – Liquid Futures. Liste Art Fair Basel. #publication
+-
+- ### 2021
+	- #### [[X-th Wave, N-th Dosage]]. *[[Make Your Dreams Come Backyard – DotA]]* Technological Centre UMPRUM, Prague #exhibition/group
+	-
+	- #### *[[City Therapy]]* Festival m³ / Art In Space, Prague #exhibition/group
+		- ##### Exhibited work: [[Players’ Table]]
+	-
+	- #### *[[Skeleton. Episode Two of the Euromedieval Saga]]* collab with Jan Boháč, PLATO Gallery, Ostrava #collaboration #exhibition/solo #performance/game
+	-
+	- #### [[Other World Is Possible]]. POP-UP Gallery AVU, Prague #exhibition/group
+		- ##### Exhibited work: *[[cp_process_final]]*, *[[cp_standin_final]]*
+-
+- ### 2020
+	- #### *[[Make Your Dreams Come Backyard]]* UMPRUM, Prague #exhibition/group
+-
+- ### 2019
+	- #### *[[How to Make Your Dreams Come True Using Blender 2.80]]* UMPRUM Gallery, Prague #exhibition/solo #performance
+	-
+	- #### *[[The Last Advanced Movement Guide You Will Need. City Surfer Office]]*, Prague #exhibition/solo #actors/voice #audio
+	-
+	- #### *[[The Last Advanced Movement Guide You Will Need]]*. Osmo/za Studio, Ljubljana #exhibition/solo #actors/voice #audio
+	-
+	- #### *[[Place of Family]]*, National Gallery The Traid Fair Palace, Prague #exhibition/solo #actors/voice #audio
+	-
+	- #### *[[Attack by a Boar. The First Part of the Euromedieval Saga]]*. Whiteroom Gallery, Prague #collaboration #exhibition/solo #performance/game
+-
+- ### 2018
+	- #### *[[Play Today – Courtyard Ludology]]* Festival m³ / Art In Space, Prague #exhibition/solo #performance  #actors
+	-
+	- #### *[[Complication]]* Output Gallery, Prague #exhibition/solo #audio #actors/voice
+	-
+	- #### *[[Walking Speed, Table Height]]* Kostka Gallery, MeetFactory Prague #exhibition/solo #text
+-
+- ### 2017
+	- #### [[Medium: Figure]]. Prague City Gallery, Colloredo-Mansfeld Palace #exhibition/group
+		- ##### Exhibited work: *[[Lady in the Lake]]* #performance  #actors
+	-
+	- #### [[The Famous Writer]]. AVU Gallery, Academy of Fine Arts in Prague #exhibition/group
+		- ##### Exhibited work: *[[Dialogue (actors)]]* #performance #actors
+	- #### *[[What's Behind the Wall]]* Jelení Gallery, Center for Contemporary Arts Prague #exhibition/solo #performance #actors #text
+-
+- ### 2016
+	- #### *[[Dear Madam, Sliced Mist]]* Photogether Gallery, Zlín #exhibition/group
+-
+- ### 2015
+	- #### *[[Episode II - Object Horizon]]* The Brno The House of Arts: G99 Gallery #exhibition/group
+	-
+	- #### *[[Episode I. - Collection in the Museum]]* Regional Museum in Chrudim #exhibition/group

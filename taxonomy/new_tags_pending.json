@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "description": "Newly proposed tags awaiting review and approval",
+  "pending_tags": [],
+  "rejected_tags": [],
+  "notes": "When build script suggests a new tag, it will appear here for manual review. After approval, move to master_tags.json and optionally run propagation check on existing projects."
+}
+

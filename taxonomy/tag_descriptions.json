@@ -1,0 +1,80 @@
+{
+  "version": "1.0",
+  "purpose": "Detailed descriptions of each tag to help LLM understand when to apply them",
+  
+  "tags": {
+    "installation": "Physical spatial artwork, often site-specific or immersive, that viewers walk through or around",
+    "object": "Discrete physical object or sculpture, typically displayable",
+    "performance": "Live enacted work with temporal element, includes readings, talks, live actions",
+    "artwork": "General visual art piece, drawing, print, or standalone artistic object",
+    
+    "audio": "Sound-based work, audio recordings, soundscapes, spoken word",
+    "audio/spatial": "3D or multichannel audio with spatial positioning, surround sound installations",
+    "3d/print": "Objects created using 3D printing technology",
+    "3d/modeling": "Digital 3D modeling, computer graphics, virtual environments",
+    "AI": "Artificial intelligence used in creation, AI-generated content, machine learning",
+    
+    "game": "Related to computer/video games, game mechanics, or gaming culture",
+    "game/map": "Focuses on game level design, cartography, virtual geography",
+    "game/cosmetics": "In-game customization items (skins, hats, visual modifications)",
+    "game/indie": "Independent/indie game development or culture",
+    "game/book": "Choose-your-own-adventure books, game books, interactive narratives",
+    "rpg": "Role-playing games (tabletop or digital), character-based narrative games",
+    "D&D": "Dungeons & Dragons specifically related, tabletop RPG sessions",
+    "TeamFortress2": "Projects specifically about/using Team Fortress 2",
+    "DotA2": "Projects specifically about/using Dota 2",
+    
+    "actors": "Work involving actors, performers, or performed characters",
+    "actors/voice": "Voice acting, vocal performance, voice-over work",
+    "actors/motion": "Motion capture, physical performance recording",
+    "performance/game": "Performance that is also a playable game or gaming session",
+    "performance/audio": "Audio-based performance, sound performance",
+    "performance/talk": "Lecture, talk, presentation as performance",
+    "costume": "Costuming, wearable elements, performative clothing",
+    
+    "narrative/spoken": "Narration, voice-over, spoken storytelling, audio essays",
+    "narrative/written": "Written text, short stories, essays, text installations",
+    "narrative/interactive": "Interactive storytelling, player-driven narratives, RPG scenarios",
+    
+    "dream": "Dreams, dream logic, oneiric qualities, subconscious exploration",
+    "memory": "Memory, remembering/forgetting, temporal displacement, nostalgia",
+    "meditation": "Meditative practices, contemplation, ritual, mindfulness",
+    "sci-fi": "Science fiction themes, speculative technology, future scenarios",
+    "transformation": "Change, metamorphosis, becoming, transition states",
+    "worldbuilding": "Creating fictional worlds, lore, imaginary geographies",
+    "speculative": "Speculative design, alternative presents/futures, what-if scenarios",
+    "player": "About gamers, player experience, player psychology, gaming culture",
+    
+    "collaboration": "Co-created with other artists, not solo work",
+    "museum": "Museum context, institutional critique, curatorial practice",
+    "research": "Research-based, investigative, academic approach",
+    
+    "flowchart": "Diagrammatic work, flow charts, visual systems",
+    "movement": "Physical movement, choreography, game movement mechanics",
+    "gamification": "Gamification of non-game contexts, game mechanics in life/art"
+  },
+  
+  "selection_strategy": {
+    "primary_tags": "Choose 1-2 tags that define the core medium (installation, performance, object)",
+    "technical_tags": "Add 1-2 tags for key techniques (audio, 3d/print, AI)",
+    "content_tags": "Add 2-3 tags for themes and content (game, memory, player)",
+    "specific_tags": "If applicable, add very specific tags (TeamFortress2, D&D)",
+    "avoid_redundancy": "Don't use both parent and child if child is sufficient (use audio/spatial instead of both audio and audio/spatial)"
+  },
+  
+  "examples": {
+    "Place of Family": {
+      "tags": ["installation", "audio", "actors/voice", "game/map", "actors/motion", "narrative/spoken", "game/cosmetics", "3d/print"],
+      "reasoning": "Installation with audio interviews (actors/voice, narrative/spoken), about game actors (actors/motion), displays game maps and cosmetic items (game/map, game/cosmetics), includes 3D prints (3d/print)"
+    },
+    "Ludomancer": {
+      "tags": ["object", "audio", "AI"],
+      "reasoning": "Stone objects (object), audio narrative work (audio), AI-generated images (AI). Focused, minimal tags."
+    },
+    "Ranger": {
+      "tags": ["rpg", "game", "D&D", "narrative/interactive"],
+      "reasoning": "Public D&D session (D&D, rpg), gaming experience (game), interactive storytelling (narrative/interactive)"
+    }
+  }
+}
+
