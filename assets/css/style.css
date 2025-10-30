@@ -1018,6 +1018,35 @@ body.work-page {
   margin-top: 10px;
 }
 
+/* Section header with toggle button (for about page) */
+.section-header-with-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.toggle-button {
+  background: var(--retro-button-bg);
+  border: 2px outset var(--retro-button-bg);
+  color: #000;
+  font-family: times_regular, serif;
+  font-size: 16px;
+  padding: 4px 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: border-style 0.1s;
+  min-width: 40px;
+}
+
+.toggle-button:hover {
+  border-style: inset;
+}
+
+.toggle-button:active {
+  border-style: inset;
+}
+
 /* Read More - Tab at bottom edge */
 .read-more-cell {
   position: relative;

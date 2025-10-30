@@ -15,14 +15,14 @@ featured:: yes
 -
 - ![Měňavec - voskový model 6](../assets/menavec_(6)_1761818905502_5.jpg)
 - exhibitions::
-	- Dec 2024-Feb 2025: Group Exhibition "Addiction Is the Message", Dům umění města Brna
+	- Dec 2024-Feb 2025: Group Exhibition "Your Addiction Is the Message", Dům umění města Brna
 	  start:: [[Dec 11th, 2024]]
 	  end:: [[Feb 16th, 2025]]
 	  place:: Dům umění města Brna
 	  town:: Brno
 	  country:: Czech Republic
 	  venue-type:: gallery
-	  link:: [Addiction Is the Message](https://www.dum-umeni.cz/en/your-addiction-is-the-message/t9741)
+	  link:: [Your Addiction Is the Message](https://www.dum-umeni.cz/en/your-addiction-is-the-message/t9741)
 	- Feb-Mar 2025: Group Exhibition "Hranice člověka", Galerie NTK
 	  start:: [[Feb 14th, 2025]]
 	  end:: [[Mar 16th, 2025]]
