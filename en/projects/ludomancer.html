@@ -306,6 +306,36 @@
         modal.style.display = 'none';
       }
     }
+    
+    // Touch/Swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    modal.addEventListener('touchstart', function(event) {
+      touchStartX = event.changedTouches[0].screenX;
+    }, false);
+    
+    modal.addEventListener('touchend', function(event) {
+      touchEndX = event.changedTouches[0].screenX;
+      handleSwipe();
+    }, false);
+    
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swipe left - next image
+          currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+          updateGalleryImage();
+        } else {
+          // Swipe right - previous image
+          currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+          updateGalleryImage();
+        }
+      }
+    }
   </script>
 </body>
 </html>
