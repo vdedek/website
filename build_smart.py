@@ -32,6 +32,7 @@ if sys.platform == 'win32':
 LOGSEQ_DIR = Path('logseq-data/pages')
 LOGSEQ_ASSETS = Path('logseq-data/assets')
 EN_DIR = Path('en')
+CZ_DIR = Path('cz')
 PROJECTS_DIR = EN_DIR / 'projects'
 IMAGES_DIR = Path('assets/images')
 TEMPLATE_FILE = PROJECTS_DIR / 'template.html'
@@ -39,6 +40,99 @@ TAXONOMY_DIR = Path('taxonomy')
 MASTER_TAGS_FILE = TAXONOMY_DIR / 'master_tags.json'
 TAG_DESCRIPTIONS_FILE = TAXONOMY_DIR / 'tag_descriptions.json'
 PENDING_TAGS_FILE = TAXONOMY_DIR / 'new_tags_pending.json'
+TRANSLATIONS_FILE = Path('translations.json')
+
+# ============================================================================
+# LOCALIZATION FUNCTIONS
+# ============================================================================
+
+def load_translations() -> Dict:
+    """Load translations from translations.json"""
+    if not TRANSLATIONS_FILE.exists():
+        print(f"⚠️  Warning: translations.json not found. Using English defaults.")
+        return {"en": {}, "cz": {}}
+    return load_json(TRANSLATIONS_FILE)
+
+def detect_language(md_file: Path) -> str:
+    """
+    Detect language from markdown filename.
+    Files with ___CZ suffix are Czech, others are English.
+    
+    Examples:
+        Changeling.md → 'en'
+        Changeling___CZ.md → 'cz'
+    """
+    if '___CZ' in md_file.stem or '___cz' in md_file.stem:
+        return 'cz'
+    return 'en'
+
+def get_output_dirs(language: str) -> Tuple[Path, Path]:
+    """
+    Get output directories based on language.
+    Returns: (language_dir, projects_dir)
+    """
+    if language == 'cz':
+        lang_dir = CZ_DIR
+        projects_dir = lang_dir / 'projects'
+    else:
+        lang_dir = EN_DIR
+        projects_dir = lang_dir / 'projects'
+    
+    return lang_dir, projects_dir
+
+def translate(key: str, language: str, translations: Dict, category: str = 'common') -> str:
+    """
+    Get translation for a key in specified language.
+    Falls back to English if translation not found.
+    
+    Args:
+        key: Translation key (e.g., 'documentation', 'year')
+        language: Language code ('en' or 'cz')
+        translations: Translations dict loaded from JSON
+        category: Category in translations dict ('common', 'project_types', 'metadata')
+    
+    Returns:
+        Translated string
+    """
+    try:
+        return translations[language][category][key]
+    except KeyError:
+        # Fallback to English
+        try:
+            return translations['en'][category][key]
+        except KeyError:
+            # Last fallback: return key itself
+            return key.replace('_', ' ').title()
+
+def translate_project_type(type_string: str, language: str, translations: Dict) -> str:
+    """
+    Translate project type string (can be comma-separated list).
+    Examples:
+        'installation, audio' → 'Instalace, Audio' (CZ)
+        'performance' → 'Performance' (CZ)
+    
+    Args:
+        type_string: Type string from metadata (e.g., 'installation, audio')
+        language: Language code ('en' or 'cz')
+        translations: Translations dict
+    
+    Returns:
+        Translated type string
+    """
+    if not type_string or language == 'en':
+        # Return as-is for English or empty
+        return type_string.title() if type_string else ''
+    
+    # Split by comma and translate each part
+    types = [t.strip().lower() for t in type_string.split(',')]
+    translated_parts = []
+    
+    for type_part in types:
+        # Try to get translation
+        translated = translate(type_part, language, translations, category='project_types')
+        translated_parts.append(translated)
+    
+    return ', '.join(translated_parts)
 
 # ============================================================================
 # TAXONOMY SYSTEM FUNCTIONS
@@ -529,10 +623,13 @@ def extract_content_sections(content):
             para = line[2:].strip()
             
             # Skip exhibition list items (they're handled separately by parse_exhibitions_list)
-            # They typically look like: "Sep-Nov 2023: Solo Exhibition, ..."
-            if re.match(r'^[A-Z][a-z]+-[A-Z][a-z]+ \d{4}:', para) or \
-               re.match(r'^[A-Z][a-z]+ \d{4}:', para) or \
-               ('Exhibition' in para and ':' in para[:20]):
+            # They typically look like: "Sep-Nov 2023: Solo Exhibition, ..." or "Prosinec 2024-Únor 2025: Skupinová výstava"
+            # Check for date patterns (English or Czech months) followed by colon
+            if re.match(r'^[A-ZÚ][a-zřčšžýáíéůú]+-[A-ZÚ][a-zřčšžýáíéůú]+ \d{4}:', para) or \
+               re.match(r'^[A-ZÚ][a-zřčšžýáíéůú]+ \d{4}:', para) or \
+               ('Exhibition' in para and ':' in para[:30]) or \
+               ('výstava' in para.lower() and ':' in para[:50]) or \
+               ('Výstava' in para and ':' in para[:50]):
                 i += 1
                 continue
             
@@ -586,20 +683,47 @@ def extract_content_sections(content):
     return sections
 
 def slugify(text):
-    """Convert text to URL-friendly slug"""
-    slug = re.sub(r'[^\w\s-]', '', text.lower())
+    """
+    Convert text to URL-friendly slug without diacritics.
+    Examples:
+        'Měňavec' → 'menavec'
+        'Přízraky' → 'prizraky'
+        'Changeling' → 'changeling'
+    """
+    # Czech diacritics mapping
+    diacritics_map = {
+        'á': 'a', 'č': 'c', 'ď': 'd', 'é': 'e', 'ě': 'e', 'í': 'i',
+        'ň': 'n', 'ó': 'o', 'ř': 'r', 'š': 's', 'ť': 't', 'ú': 'u',
+        'ů': 'u', 'ý': 'y', 'ž': 'z',
+        'Á': 'a', 'Č': 'c', 'Ď': 'd', 'É': 'e', 'Ě': 'e', 'Í': 'i',
+        'Ň': 'n', 'Ó': 'o', 'Ř': 'r', 'Š': 's', 'Ť': 't', 'Ú': 'u',
+        'Ů': 'u', 'Ý': 'y', 'Ž': 'z'
+    }
+    
+    # Replace diacritics
+    text_no_diacritics = ''.join(diacritics_map.get(c, c) for c in text)
+    
+    # Convert to lowercase and remove special characters
+    slug = re.sub(r'[^\w\s-]', '', text_no_diacritics.lower())
     slug = re.sub(r'[\s_-]+', '-', slug)
     slug = re.sub(r'^-+|-+$', '', slug)
     return slug
 
-def copy_images_to_project_folder(images, project_slug):
+def copy_images_to_project_folder(images, project_slug_en):
     """
     Process images from logseq-data/assets to assets/images/ProjectName/
     Generates responsive versions (thumbnail, medium, full) if PIL is available.
     
+    IMPORTANT: Always uses English project slug for folder name to avoid duplication
+    between language versions (e.g., both 'Changeling' and 'Měňavec' use same folder 'Changeling/')
+    
+    Args:
+        images: List of image filenames
+        project_slug_en: English project slug (used for folder name)
+    
     Returns: List of dicts with 'medium' and 'full' paths for each image
     """
-    project_images_dir = IMAGES_DIR / project_slug.capitalize()
+    project_images_dir = IMAGES_DIR / project_slug_en.capitalize()
     project_images_dir.mkdir(parents=True, exist_ok=True)
     
     processed_images = []
@@ -622,7 +746,7 @@ def copy_images_to_project_folder(images, project_slug):
                 versions = generate_responsive_versions(
                     source_path=source,
                     output_dir=project_images_dir,
-                    project_slug=project_slug,
+                    project_slug=project_slug_en,
                     image_index=idx
                 )
                 # Return medium for display, full for lightbox
@@ -636,7 +760,7 @@ def copy_images_to_project_folder(images, project_slug):
                 # Fallback: copy original
                 dest = project_images_dir / img_filename
                 shutil.copy2(source, dest)
-                rel_path = f"../../assets/images/{project_slug.capitalize()}/{img_filename}"
+                rel_path = f"../../assets/images/{project_slug_en.capitalize()}/{img_filename}"
                 processed_images.append({
                     'medium': rel_path,
                     'full': rel_path
@@ -645,7 +769,7 @@ def copy_images_to_project_folder(images, project_slug):
             # Fallback: just copy without processing
             dest = project_images_dir / img_filename
             shutil.copy2(source, dest)
-            rel_path = f"../../assets/images/{project_slug.capitalize()}/{img_filename}"
+            rel_path = f"../../assets/images/{project_slug_en.capitalize()}/{img_filename}"
             processed_images.append({
                 'medium': rel_path,
                 'full': rel_path
@@ -760,8 +884,19 @@ def generate_structured_data(metadata, sections, project_slug, image_paths):
     
     return json.dumps(artwork_data, indent=2, ensure_ascii=False)
 
-def generate_project_from_template(md_file, template_content, project_slug):
-    """Generate HTML using ludomancer.html as template"""
+def generate_project_from_template(md_file, template_content, project_slug, language='en', translations=None):
+    """
+    Generate HTML using template with language support.
+    
+    Args:
+        md_file: Path to markdown file
+        template_content: HTML template content
+        project_slug: URL-friendly project slug
+        language: Language code ('en' or 'cz')
+        translations: Translations dict (loaded from JSON)
+    """
+    if translations is None:
+        translations = load_translations()
     
     with open(md_file, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -777,9 +912,12 @@ def generate_project_from_template(md_file, template_content, project_slug):
     project_name = metadata.get('name-en', md_file.stem)
     project_type = metadata.get('type', 'exhibition')
     
+    # Always use English name for image folder (to avoid duplication between language versions)
+    project_slug_en = slugify(metadata.get('name-en', md_file.stem))
+    
     # Copy images to project folder and get new paths
     print(f"  Copying images...")
-    image_paths = copy_images_to_project_folder(sections['images'], project_slug) if sections['images'] else []
+    image_paths = copy_images_to_project_folder(sections['images'], project_slug_en) if sections['images'] else []
     
     # Format type nicely
     if 'solo' in project_type:
@@ -792,28 +930,33 @@ def generate_project_from_template(md_file, template_content, project_slug):
     # Build metadata chips (general work info only - NO exhibition details)
     metadata_chips = []
     
-    # Type
-    metadata_chips.append(f'<span class="metadata-chip">Type: {type_display}</span>')
+    # Helper function for translation
+    def t(key, category='common'):
+        return translate(key, language, translations, category)
+    
+    # Type - translate the type string
+    type_display_translated = translate_project_type(project_type, language, translations)
+    metadata_chips.append(f'<span class="metadata-chip">{t("type")}: {type_display_translated}</span>')
     
     # Year
     if 'year' in metadata:
-        metadata_chips.append(f'<span class="metadata-chip">Year: {metadata["year"]}</span>')
+        metadata_chips.append(f'<span class="metadata-chip">{t("year")}: {metadata["year"]}</span>')
     
     # Materials
     if 'materials' in metadata:
-        metadata_chips.append(f'<span class="metadata-chip">Materials: {metadata["materials"]}</span>')
+        metadata_chips.append(f'<span class="metadata-chip">{t("materials")}: {metadata["materials"]}</span>')
     elif 'description' in metadata:
-        metadata_chips.append(f'<span class="metadata-chip">Materials: {metadata["description"]}</span>')
+        metadata_chips.append(f'<span class="metadata-chip">{t("materials")}: {metadata["description"]}</span>')
     
     # Duration
     if 'duration' in metadata:
-        metadata_chips.append(f'<span class="metadata-chip">Duration: {metadata["duration"]}</span>')
+        metadata_chips.append(f'<span class="metadata-chip">{t("duration")}: {metadata["duration"]}</span>')
     
     # Audio button (if audio-url-cz or audio-url-en exists)
     if 'audio-url-cz' in metadata:
-        metadata_chips.append(f'<a href="{metadata["audio-url-cz"]}" target="_blank" class="metadata-chip metadata-chip-link">Listen to audio (CZ) ↗</a>')
+        metadata_chips.append(f'<a href="{metadata["audio-url-cz"]}" target="_blank" class="metadata-chip metadata-chip-link">{t("listen_to_audio_cz")} ↗</a>')
     if 'audio-url-en' in metadata:
-        metadata_chips.append(f'<a href="{metadata["audio-url-en"]}" target="_blank" class="metadata-chip metadata-chip-link">Listen to audio (EN) ↗</a>')
+        metadata_chips.append(f'<a href="{metadata["audio-url-en"]}" target="_blank" class="metadata-chip metadata-chip-link">{t("listen_to_audio_en")} ↗</a>')
     
     # Combine all chips into one row
     metadata_html = f'''    <tr>
@@ -828,9 +971,9 @@ def generate_project_from_template(md_file, template_content, project_slug):
     # EXHIBITIONS LIST - Generate as buttons with links (all in one cell)
     exhibitions_html = ''
     if 'exhibitions_list' in metadata and metadata['exhibitions_list']:
-        exhibitions_html = '''    <tr>
+        exhibitions_html = f'''    <tr>
       <td class="content-cell">
-        <h2 class="section-header">Exhibition History</h2>
+        <h2 class="section-header">{t("exhibition_history")}</h2>
       </td>
     </tr>
     <tr>
@@ -1027,11 +1170,11 @@ def generate_project_from_template(md_file, template_content, project_slug):
         
         # Documentation images (rest)
         if len(image_paths) > 1:
-            gallery_html = '''
+            gallery_html = f'''
     <!-- Documentation Gallery -->
     <tr>
       <td class="content-cell">
-        <h2 class="section-header">Documentation</h2>
+        <h2 class="section-header">{t("documentation")}</h2>
       </td>
     </tr>
 '''
@@ -1098,12 +1241,12 @@ def generate_project_from_template(md_file, template_content, project_slug):
     if 'related-projects' in metadata:
         # Manual curation - use specified projects
         related_list = [r.strip() for r in metadata['related-projects'].split(',')]
-        related_html = '''
+        related_html = f'''
   <!-- Related Projects Table -->
   <table class="projects-table" cellspacing="1" cellpadding="0">
     <tr>
       <td class="content-cell">
-        <h2 class="section-header">Related Projects</h2>
+        <h2 class="section-header">{t("related_projects")}</h2>
       </td>
     </tr>
 '''
@@ -1130,12 +1273,12 @@ def generate_project_from_template(md_file, template_content, project_slug):
                 related_projects = find_related_projects(metadata, all_projects, master_tags, max_results=3)
                 
                 if related_projects:
-                    related_html = '''
+                    related_html = f'''
   <!-- Related Projects Table (Auto-generated) -->
   <table class="projects-table" cellspacing="1" cellpadding="0">
     <tr>
       <td class="content-cell">
-        <h2 class="section-header">Related Projects</h2>
+        <h2 class="section-header">{t("related_projects")}</h2>
       </td>
     </tr>
 '''
@@ -1163,7 +1306,15 @@ def generate_project_from_template(md_file, template_content, project_slug):
     html = template_content
     
     # ============================================================================
-    # SEO META TAGS & STRUCTURED DATA (Do this FIRST before other replacements)
+    # LANGUAGE & LOCALIZATION (Do this FIRST)
+    # ============================================================================
+    
+    # Set HTML lang attribute
+    html_lang = translations.get(language, {}).get('html_lang', language)
+    html = re.sub(r'<html lang="[^"]*">', f'<html lang="{html_lang}">', html)
+    
+    # ============================================================================
+    # SEO META TAGS & STRUCTURED DATA
     # ============================================================================
     
     # Generate meta description
@@ -1189,8 +1340,9 @@ def generate_project_from_template(md_file, template_content, project_slug):
         if hero_img.startswith('../../'):
             hero_image_url = 'https://viktordedek.com/' + hero_img[6:]  # Remove ../../
     
-    # Project canonical URL
-    project_url = f"https://viktordedek.com/en/projects/{project_slug}.html"
+    # Project canonical URL (use correct language folder)
+    lang_folder = 'cz' if language == 'cz' else 'en'
+    project_url = f"https://viktordedek.com/{lang_folder}/projects/{project_slug}.html"
     
     # Generate structured data (JSON-LD)
     structured_data = generate_structured_data(metadata, sections, project_slug, image_paths)
@@ -1751,6 +1903,25 @@ def build_single_project(project_name):
     print("=" * 60)
     print()
     
+    # Find markdown file
+    md_file = find_markdown_file(project_name)
+    if not md_file:
+        print(f"❌ ERROR: Markdown file not found for: {project_name}")
+        print(f"   Searched in: {LOGSEQ_DIR}")
+        return False
+    
+    print(f"✓ Found markdown: {md_file.name}")
+    
+    # Detect language from filename
+    language = detect_language(md_file)
+    print(f"✓ Detected language: {language.upper()}")
+    
+    # Load translations
+    translations = load_translations()
+    
+    # Get output directories for this language
+    lang_dir, projects_dir = get_output_dirs(language)
+    
     # Load template
     if not TEMPLATE_FILE.exists():
         print(f"❌ ERROR: Template file not found: {TEMPLATE_FILE}")
@@ -1760,19 +1931,10 @@ def build_single_project(project_name):
         template = f.read()
     
     print(f"✓ Template loaded: {TEMPLATE_FILE}")
-    
-    # Find markdown file
-    md_file = find_markdown_file(project_name)
-    if not md_file:
-        print(f"❌ ERROR: Markdown file not found for: {project_name}")
-        print(f"   Searched in: {LOGSEQ_DIR}")
-        return False
-    
-    print(f"✓ Found markdown: {md_file.name}")
     print()
     
     # Create directories
-    PROJECTS_DIR.mkdir(exist_ok=True)
+    projects_dir.mkdir(parents=True, exist_ok=True)
     IMAGES_DIR.mkdir(exist_ok=True)
     
     try:
@@ -1785,16 +1947,19 @@ def build_single_project(project_name):
             print(f"❌ ERROR: Project has no 'year' metadata")
             return False
         
-        project_slug = slugify(metadata.get('name-en', md_file.stem))
-        output_file = PROJECTS_DIR / f"{project_slug}.html"
+        # Use name-cz for Czech projects, name-en for English
+        name_key = 'name-cz' if language == 'cz' else 'name-en'
+        project_slug = slugify(metadata.get(name_key, metadata.get('name-en', md_file.stem)))
+        output_file = projects_dir / f"{project_slug}.html"
         
         print(f"Generating HTML...")
+        print(f"  Language: {language.upper()}")
         print(f"  Project slug: {project_slug}")
         print(f"  Output file: {output_file}")
         print()
         
-        # Generate HTML
-        result = generate_project_from_template(md_file, template, project_slug)
+        # Generate HTML with language support
+        result = generate_project_from_template(md_file, template, project_slug, language=language, translations=translations)
         
         if result[0] is None:
             print(f"❌ ERROR: Failed to generate HTML")

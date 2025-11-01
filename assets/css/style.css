@@ -281,10 +281,9 @@ a:hover {
   }
   
   .metadata-chip {
-    font-size: 18px;
+    font-size: 15px;
     padding: 5px 10px;
     white-space: normal; /* Allow wrapping on mobile */
-    color: #000;
   }
 }
 
@@ -698,10 +697,9 @@ body.work-page {
   .nav-table .nav-cell {
     padding: 12px 16px;
     border-width: 2px;
-    font-size: 22px;
+    font-size: 18px;
     height: 52px;
     box-sizing: border-box;
-    color: #000;
   }
 
   .nav-gif {
@@ -741,19 +739,17 @@ body.work-page {
   .filter-cell {
     padding: 8px 12px;
     border-width: 2px;
-    font-size: 22px;
+    font-size: 18px;
     height: 44px;
     box-sizing: border-box;
     white-space: nowrap;
     background: var(--retro-bg);
-    color: #000;
   }
 
   .filter-cell.active {
     border-style: inset;
     background: #e8e5de;
     font-weight: bold;
-    color: #000;
   }
 
   .projects-table {
@@ -774,8 +770,7 @@ body.work-page {
 
   .project-symbol {
     margin-top: 4px;
-    font-size: 26px;
-    color: #000;
+    font-size: 22px;
   }
 
   .project-cell {
@@ -1131,13 +1126,22 @@ body.work-page {
   stroke: #d4d0c8 !important;
 }
 
-/* Change text based on state */
-.read-more-section:not([open]) > .read-more-tab .read-more-text::after {
+/* Change text based on state - English */
+html[lang="en"] .read-more-section:not([open]) > .read-more-tab .read-more-text::after {
   content: "Show more ▼";
 }
 
-.read-more-section[open] > .read-more-tab .read-more-text::after {
+html[lang="en"] .read-more-section[open] > .read-more-tab .read-more-text::after {
   content: "Show less ▲";
+}
+
+/* Change text based on state - Czech */
+html[lang="cs"] .read-more-section:not([open]) > .read-more-tab .read-more-text::after {
+  content: "Zobrazit více ▼";
+}
+
+html[lang="cs"] .read-more-section[open] > .read-more-tab .read-more-text::after {
+  content: "Zobrazit méně ▲";
 }
 
 /* Hidden content */
@@ -1424,52 +1428,43 @@ body.work-page {
 /* Project Page Mobile Styles */
 @media screen and (max-width: 768px) {
   .body-text {
-    font-size: 26px;
-    color: #000;
+    font-size: 22px;
   }
   
   .italic {
-    font-size: 26px;
-    color: #000;
+    font-size: 22px;
   }
   
   .quote {
-    font-size: 26px;
+    font-size: 22px;
     margin-left: 15px;
     margin-right: 10px;
     padding-left: 12px;
-    color: #000;
   }
   
   .project-metadata,
   .section-header {
-    font-size: 24px;
-    color: #000;
+    font-size: 20px;
   }
   
   .project-title {
-    font-size: 24px;
-    color: #000;
+    font-size: 20px;
   }
   
   .year-cell {
-    font-size: 22px;
-    color: #000;
+    font-size: 18px;
   }
   
   .project-meta {
-    font-size: 20px;
-    color: #000;
+    font-size: 16px;
   }
   
   .project-title-text {
-    font-size: 22px;
-    color: #000;
+    font-size: 18px;
   }
   
   .collapsible-section summary {
-    font-size: 22px;
-    color: #000;
+    font-size: 18px;
   }
   
   /* Mobile Gallery - Full width with touch support */
@@ -1511,10 +1506,9 @@ body.work-page {
   }
   
   .gallery-counter {
-    font-size: 24px !important;
+    font-size: 20px !important;
     bottom: 30px !important;
     padding: 8px 15px !important;
-    color: #000 !important;
   }
   
   /* Better touch targets */
@@ -1529,41 +1523,35 @@ body.work-page {
   
   /* Read More tab - larger on mobile */
   .read-more-tab {
-    font-size: 20px;
+    font-size: 16px;
     padding: 6px 18px 4px 18px;
-    color: #000;
   }
 }
 
 /* Small mobile devices */
 @media screen and (max-width: 480px) {
   .body-text {
-    font-size: 24px;
-    color: #000;
+    font-size: 20px;
   }
   
   .italic {
-    font-size: 24px;
-    color: #000;
+    font-size: 20px;
   }
   
   .quote {
-    font-size: 24px;
+    font-size: 20px;
     margin-left: 10px;
     margin-right: 5px;
     padding-left: 8px;
-    color: #000;
   }
   
   .project-metadata,
   .section-header {
-    font-size: 22px;
-    color: #000;
+    font-size: 18px;
   }
   
   .project-title {
-    font-size: 22px;
-    color: #000;
+    font-size: 18px;
   }
   
   .gallery-close {
@@ -1573,9 +1561,8 @@ body.work-page {
   }
   
   .gallery-counter {
-    font-size: 22px !important;
+    font-size: 18px !important;
     bottom: 20px !important;
-    color: #000 !important;
   }
 }
 
