@@ -1,0 +1,14 @@
+# robots.txt for viktordedek.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://viktordedek.com/sitemap.xml
+
+# Disallow build scripts and data folders
+Disallow: /logseq-data/
+Disallow: /taxonomy/
+Disallow: *.py
+Disallow: *.md
+

@@ -1210,6 +1210,16 @@ body.work-page {
 }
 
 /* Typography - Semantic Classes */
+
+/* Reset h1 and h2 for semantic SEO markup on project pages */
+.project-page h1.project-title,
+.project-page h2.section-header {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  text-align: left;
+}
+
 .project-title {
   font-family: times_b16, serif;
   font-size: 16px;

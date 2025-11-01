@@ -14,6 +14,7 @@ import json
 import urllib.parse
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
+from datetime import datetime
 
 # Import image processor
 try:
@@ -653,6 +654,112 @@ def copy_images_to_project_folder(images, project_slug):
     
     return processed_images
 
+def generate_meta_description(metadata, sections, max_length=160):
+    """
+    Generate SEO meta description from project content.
+    Prefers: about text > first paragraph > description metadata
+    """
+    # Try to find about text from sections
+    for section in sections.get('content', []):
+        if section['type'] == 'header' and 'about' in section.get('title', '').lower():
+            if section.get('content'):
+                # Get first paragraph, strip HTML tags
+                first_para = section['content'][0].get('text', '')
+                clean_text = re.sub(r'<[^>]+>', '', first_para)
+                if len(clean_text) > max_length:
+                    return clean_text[:max_length-3] + '...'
+                return clean_text
+        elif section['type'] == 'paragraph':
+            # Use first regular paragraph
+            clean_text = re.sub(r'<[^>]+>', '', section.get('text', ''))
+            if len(clean_text) > max_length:
+                return clean_text[:max_length-3] + '...'
+            return clean_text
+    
+    # Fallback to metadata description
+    if 'description' in metadata:
+        desc = metadata['description']
+        if len(desc) > max_length:
+            return desc[:max_length-3] + '...'
+        return desc
+    
+    # Last fallback: type and year
+    return f"{metadata.get('type', 'Artwork')} by Viktor Dedek ({metadata.get('year', 'TBD')})"
+
+def generate_structured_data(metadata, sections, project_slug, image_paths):
+    """
+    Generate JSON-LD structured data for artwork and exhibitions.
+    Returns JSON string ready for insertion into <script type="application/ld+json">
+    """
+    project_name = metadata.get('name-en', project_slug)
+    project_url = f"https://viktordedek.com/en/projects/{project_slug}.html"
+    
+    # Base artwork data
+    artwork_data = {
+        "@context": "https://schema.org",
+        "@type": "VisualArtwork",
+        "name": project_name,
+        "creator": {
+            "@type": "Person",
+            "name": "Viktor Dedek",
+            "url": "https://viktordedek.com"
+        },
+        "dateCreated": str(metadata.get('year', '')),
+        "artMedium": metadata.get('type', 'installation'),
+        "url": project_url
+    }
+    
+    # Add image if available
+    if image_paths:
+        hero_img = image_paths[0].get('full', image_paths[0].get('medium', ''))
+        if hero_img.startswith('../../'):
+            hero_img = 'https://viktordedek.com/' + hero_img[6:]  # Remove ../../
+        artwork_data["image"] = hero_img
+    
+    # Add description
+    if 'description' in metadata:
+        artwork_data["description"] = metadata['description']
+    
+    # Add materials
+    if 'materials' in metadata:
+        artwork_data["material"] = metadata['materials']
+    
+    # Add exhibition events
+    exhibitions = metadata.get('exhibitions_list', [])
+    if exhibitions:
+        events = []
+        for exh in exhibitions:
+            props = exh.get('properties', {})
+            event = {
+                "@type": "ExhibitionEvent",
+                "name": exh['title']
+            }
+            
+            if 'place' in props:
+                event["location"] = {
+                    "@type": "Place",
+                    "name": props['place']
+                }
+                if 'town' in props:
+                    event["location"]["address"] = {
+                        "@type": "PostalAddress",
+                        "addressLocality": props['town']
+                    }
+                    if 'country' in props:
+                        event["location"]["address"]["addressCountry"] = props['country']
+            
+            if 'start' in props:
+                event["startDate"] = props['start']
+            if 'end' in props:
+                event["endDate"] = props['end']
+            
+            events.append(event)
+        
+        if events:
+            artwork_data["workPresented"] = events
+    
+    return json.dumps(artwork_data, indent=2, ensure_ascii=False)
+
 def generate_project_from_template(md_file, template_content, project_slug):
     """Generate HTML using ludomancer.html as template"""
     
@@ -723,7 +830,7 @@ def generate_project_from_template(md_file, template_content, project_slug):
     if 'exhibitions_list' in metadata and metadata['exhibitions_list']:
         exhibitions_html = '''    <tr>
       <td class="content-cell">
-        <div class="section-header">Exhibition History</div>
+        <h2 class="section-header">Exhibition History</h2>
       </td>
     </tr>
     <tr>
@@ -813,7 +920,7 @@ def generate_project_from_template(md_file, template_content, project_slug):
     <!-- {section['title']} (Read More) -->
     <tr>
       <td class="content-cell">
-        <div class="section-header">{section['title']}</div>
+        <h2 class="section-header">{section['title']}</h2>
       </td>
     </tr>
     <tr>
@@ -862,7 +969,7 @@ def generate_project_from_template(md_file, template_content, project_slug):
     <!-- {section['title']} -->
     <tr>
       <td class="content-cell">
-        <div class="section-header">{section['title']}</div>
+        <h2 class="section-header">{section['title']}</h2>
       </td>
     </tr>
 '''
@@ -924,7 +1031,7 @@ def generate_project_from_template(md_file, template_content, project_slug):
     <!-- Documentation Gallery -->
     <tr>
       <td class="content-cell">
-        <div class="section-header">Documentation</div>
+        <h2 class="section-header">Documentation</h2>
       </td>
     </tr>
 '''
@@ -996,7 +1103,7 @@ def generate_project_from_template(md_file, template_content, project_slug):
   <table class="projects-table" cellspacing="1" cellpadding="0">
     <tr>
       <td class="content-cell">
-        <div class="section-header">Related Projects</div>
+        <h2 class="section-header">Related Projects</h2>
       </td>
     </tr>
 '''
@@ -1028,7 +1135,7 @@ def generate_project_from_template(md_file, template_content, project_slug):
   <table class="projects-table" cellspacing="1" cellpadding="0">
     <tr>
       <td class="content-cell">
-        <div class="section-header">Related Projects</div>
+        <h2 class="section-header">Related Projects</h2>
       </td>
     </tr>
 '''
@@ -1055,13 +1162,66 @@ def generate_project_from_template(md_file, template_content, project_slug):
     # Replace content in template
     html = template_content
     
+    # ============================================================================
+    # SEO META TAGS & STRUCTURED DATA (Do this FIRST before other replacements)
+    # ============================================================================
+    
+    # Generate meta description
+    meta_description = generate_meta_description(metadata, sections)
+    
+    # Generate keywords from tags
+    project_tags = extract_tags_from_metadata(metadata)
+    # Base keywords that appear on all project pages
+    base_keywords = ["Viktor Dedek", "contemporary art", "artistic research"]
+    
+    if project_tags:
+        # Use project-specific tags + base keywords
+        tag_keywords = [tag.lstrip('#') for tag in project_tags]
+        keywords = ', '.join(tag_keywords + base_keywords)
+    else:
+        # Fallback if no tags
+        keywords = ', '.join([project_type, "installation art", "new media"] + base_keywords)
+    
+    # Get hero image URL for Open Graph
+    hero_image_url = "https://viktordedek.com/assets/images/default-preview.jpg"  # Fallback
+    if image_paths:
+        hero_img = image_paths[0].get('full', image_paths[0].get('medium', ''))
+        if hero_img.startswith('../../'):
+            hero_image_url = 'https://viktordedek.com/' + hero_img[6:]  # Remove ../../
+    
+    # Project canonical URL
+    project_url = f"https://viktordedek.com/en/projects/{project_slug}.html"
+    
+    # Generate structured data (JSON-LD)
+    structured_data = generate_structured_data(metadata, sections, project_slug, image_paths)
+    
+    # Replace SEO placeholders in template
+    html = html.replace('PROJECT_DESCRIPTION', meta_description)
+    html = html.replace('PROJECT_KEYWORDS', keywords)
+    html = html.replace('PROJECT_IMAGE_URL', hero_image_url)
+    html = html.replace('PROJECT_URL', project_url)
+    html = html.replace('STRUCTURED_DATA_JSON', structured_data)
+    
+    # Update Open Graph and Twitter titles
+    og_title = f'{project_name} - Viktor Dedek'
+    html = re.sub(
+        r'<meta property="og:title" content="[^"]*">',
+        f'<meta property="og:title" content="{og_title}">',
+        html
+    )
+    html = re.sub(
+        r'<meta name="twitter:title" content="[^"]*">',
+        f'<meta name="twitter:title" content="{og_title}">',
+        html
+    )
+    
     # Replace title
     html = re.sub(r'<title>.*?</title>', f'<title>{project_name} - Viktor Dedek</title>', html)
     
-    # Replace project title
+    # Replace h1.project-title text (template already has h1)
     html = re.sub(
-        r'<div class="project-title">▓ .*?</div>',
-        f'<div class="project-title">▓ {project_name}</div>',
+        r'(<h1 class="project-title">)▓ [^<]+(</h1>)',
+        rf'\1▓ {project_name}\2',
         html
     )
     
@@ -1222,6 +1382,115 @@ def get_project_preview_image(project_slug: str) -> Optional[str]:
                 return f"../assets/images/{folder.name}/{images[0].name}"
     
     return None
+
+def generate_sitemap():
+    """
+    Generate sitemap.xml with all pages on the website.
+    Includes homepage, main pages, and all project pages.
+    Returns True on success, False on failure.
+    """
+    print("=" * 60)
+    print("Generating sitemap.xml")
+    print("=" * 60)
+    print()
+    
+    base_url = "https://viktordedek.com"
+    sitemap_entries = []
+    
+    # 1. Homepage (highest priority)
+    sitemap_entries.append({
+        'loc': f"{base_url}/",
+        'priority': '1.0',
+        'changefreq': 'monthly'
+    })
+    
+    # 2. Main pages
+    main_pages = [
+        ('en/work.html', '0.9', 'weekly'),
+        ('en/about.html', '0.8', 'monthly'),
+        ('en/progress.html', '0.6', 'monthly'),
+    ]
+    
+    for page, priority, freq in main_pages:
+        page_path = Path(page)
+        if page_path.exists():
+            sitemap_entries.append({
+                'loc': f"{base_url}/{page}",
+                'priority': priority,
+                'changefreq': freq
+            })
+            print(f"  ✓ Added: {page}")
+    
+    # 3. Project pages (auto-detect all HTML files in en/projects/)
+    project_files = list(PROJECTS_DIR.glob('*.html'))
+    project_files = [f for f in project_files if f.name != 'template.html']
+    
+    # Load master tags to determine featured projects
+    master_tags = load_json(MASTER_TAGS_FILE)
+    
+    for html_file in sorted(project_files):
+        # Try to find corresponding .md file to check if featured
+        html_slug = html_file.stem
+        is_featured = False
+        
+        for potential_md in LOGSEQ_DIR.glob('*.md'):
+            if potential_md.stem.startswith('_'):
+                continue
+            potential_slug = slugify(potential_md.stem)
+            if potential_slug == html_slug:
+                try:
+                    with open(potential_md, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    metadata = parse_metadata(content)
+                    is_featured = metadata.get('featured', '').lower() == 'yes'
+                except:
+                    pass
+                break
+        
+        # Featured projects get higher priority
+        priority = '0.9' if is_featured else '0.7'
+        
+        sitemap_entries.append({
+            'loc': f"{base_url}/en/projects/{html_file.name}",
+            'priority': priority,
+            'changefreq': 'monthly'
+        })
+        print(f"  ✓ Added: en/projects/{html_file.name} (priority: {priority})")
+    
+    # Generate XML
+    xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    for entry in sitemap_entries:
+        xml_content += '  <url>\n'
+        xml_content += f'    <loc>{entry["loc"]}</loc>\n'
+        xml_content += f'    <changefreq>{entry["changefreq"]}</changefreq>\n'
+        xml_content += f'    <priority>{entry["priority"]}</priority>\n'
+        xml_content += '  </url>\n'
+    
+    xml_content += '</urlset>\n'
+    
+    # Write sitemap.xml to root directory
+    sitemap_file = Path('sitemap.xml')
+    with open(sitemap_file, 'w', encoding='utf-8') as f:
+        f.write(xml_content)
+    
+    print()
+    print("=" * 60)
+    print(f"✅ SUCCESS! Generated: {sitemap_file}")
+    print("=" * 60)
+    print()
+    print(f"  Total URLs: {len(sitemap_entries)}")
+    print(f"  Homepage: 1")
+    print(f"  Main pages: {len(main_pages)}")
+    print(f"  Project pages: {len(project_files)}")
+    print()
+    print("💡 Don't forget to:")
+    print("   1. Add sitemap.xml to your robots.txt")
+    print("   2. Submit sitemap to Google Search Console")
+    print()
+    
+    return True
 
 def generate_work_html():
     """
@@ -1446,6 +1715,11 @@ def generate_work_html():
     print(f"  Years covered: {', '.join(str(y) for y in sorted(years.keys(), reverse=True))}")
     print()
     
+    # Automatically generate sitemap after work.html
+    print("Updating sitemap...")
+    print()
+    generate_sitemap()
+    
     return True
 
 def find_markdown_file(project_name):
@@ -1560,8 +1834,11 @@ Examples:
   python build_smart.py Ludomancer
   python build_smart.py "Place of Family"
   
-  # Generate work.html from all projects
+  # Generate work.html from all projects (also updates sitemap)
   python build_smart.py --build-work
+  
+  # Generate sitemap.xml only
+  python build_smart.py --build-sitemap
   
   # Taxonomy tools
   python build_smart.py --show-related "Place of Family"
@@ -1572,7 +1849,8 @@ The script will:
   1. Find the markdown file in logseq-data/pages/
   2. Copy images to assets/images/ProjectName/
   3. Generate HTML with auto-generated Related Projects
-  4. (--build-work) Generate work.html with all projects and filters
+  4. (--build-work) Generate work.html with all projects + sitemap.xml
+  5. (--build-sitemap) Generate sitemap.xml with all pages
         '''
     )
     
@@ -1604,7 +1882,13 @@ The script will:
     parser.add_argument(
         '--build-work',
         action='store_true',
-        help='Generate work.html from all projects'
+        help='Generate work.html from all projects (also updates sitemap)'
+    )
+    
+    parser.add_argument(
+        '--build-sitemap',
+        action='store_true',
+        help='Generate sitemap.xml with all pages'
     )
     
     args = parser.parse_args()
@@ -1791,8 +2075,13 @@ The script will:
         print("✅ Audit complete")
         sys.exit(0)
     
+    elif args.build_sitemap:
+        # Generate sitemap only
+        success = generate_sitemap()
+        sys.exit(0 if success else 1)
+    
     elif args.build_work:
-        # Generate work.html
+        # Generate work.html (automatically generates sitemap too)
         success = generate_work_html()
         sys.exit(0 if success else 1)
     

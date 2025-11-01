@@ -9,18 +9,21 @@ featured:: yes
 - # Exhibition History
   exhibitions::
 	- Mar-Jul 2019: Solo Exhibition, National Gallery (The Traid Fair Palace), Prague
+	  start:: [[Mar 1st, 2019]] 
+	  end:: [[Jul 28th, 2019]]
+	  place:: National Gallery, The Traid Fair Palace
+	  town:: Prague
+	  country:: Czech Republic
+	  venue-type:: gallery
+	  link:: [National Gallery - Place of Family](https://www.ngprague.cz/en/event/235/introducing-viktor-dedek-the-place-of-family)
+	  curated-by:: Adam Budak
+	  note:: Exhibition includes 3D printed Team Fortress 2 map models (cp_process_final, cp_standin_final) which were later also exhibited at "Other World Is Possible" (2022)
 	- Jun-Jul 2022: Group Exhibition "Other World Is Possible", Galerie AVU, Prague
-- # Solo Exhibition Details (2019)
-  curated-by:: Adam Budak
-  place:: National Gallery, The Traid Fair Palace
-  town:: Prague
-  country:: Czech Republic
-  start:: [[Mar 1st, 2019]] 
-  end:: [[Jul 28th, 2019]]
-  link-en:: https://www.ngprague.cz/en/event/235/introducing-viktor-dedek-the-place-of-family
-  description:: instalation, audio, landscape models, 3D prints
-  note:: Exhibition includes 3D printed Team Fortress 2 map models (cp_process_final, cp_standin_final) which were later also exhibited at "Other World Is Possible" (2022)
-  tag:: #installation #audio #voice #motion-capture #gaming #TeamFortress2 #narrative #3d #childhood #speculative
+	  place:: Galerie AVU
+	  town:: Prague
+	  country:: Czech Republic
+	  description:: instalation, audio, landscape models, 3D prints
+	  tag:: #installation #audio #voice #motion-capture #gaming #TeamFortress2 #narrative #3d #childhood #speculative
 - #### Curatorial text by Adam Budak:
   show-first-paragraph:: true
 	- Full-time dreamer and part-time trickster, Viktor Dedek is a quixotic regisseur of polyphonic worlds, suspended between the unlimited fantasy of a computer game and the unruled laws of imagination. The artist boldly reaches beyond the performative, towards the multi-sensorial experience of extended reality. Fictive narratives of phantom-like protagonists collide with the visual collages of phantasmagoric sites, loosely based upon a deceiving memory, non-identified cartographies of a lost mind. Dedek's universe is both a utopia of the unknown as well as the comfort zone of the artist's own self-confidence. Guardian of a cognitive labyrinth, the artist leads and misleads the viewer through the avenues of illusion (delusion?) and the theatrics of post-truth. Seemingly hard to grasp and hermetic, his conceptual practice mimics the vocabulary of computer-generated hyper worlds of super-human and alien tactics, challenging the perceptive skills and investigating human (in)ability to memorize, act and imagine. Dedek provokes the viewer, unsettling his/her experience of once familiar reality and setting up a doubt in the given idioms of today's world thus awakening a sensitivity of artificial intelligence and hardware logic of new minds yet to be mastered. Have we already moved to the land of a too well-known and predictable future, or do we keep inhabiting an extreme present of zwischendinge and deselfing? The artist is a post-romantic poet of a technocized reverie, an agent of a revised sublime for the (on-line) age of inevitable humanitarian decline.
@@ -35,8 +38,8 @@ featured:: yes
 -
 -
 - #### Listen to the exhibition audio ⤵
-	- [The interview with the voice actress (EN) - ▶︎ •၊၊||၊|။||||။‌‌‌‌‌၊|• 8:54](https://soundcloud.com/poznamkyproni/voice-actress/s-qi6OE)
-	- [The interview with the motion capture actress (EN) - ▶︎ •၊၊||၊|။||||။‌‌‌‌‌၊|• 8:54](https://soundcloud.com/poznamkyproni/motion-capture-actress/s-DDzXL)
+	- The interview with the voice actress (EN) [▶︎ •၊၊||၊|။||||။‌‌‌‌‌၊|• 8:54](https://soundcloud.com/poznamkyproni/voice-actress/s-qi6OE)
+	- The interview with the motion capture actress (EN) [▶︎ •၊၊||၊|။||||။‌‌‌‌‌၊|• 8:54](https://soundcloud.com/poznamkyproni/motion-capture-actress/s-DDzXL)
 - #### Documentation
 - ![placeoffamily1.jpg](../assets/placeoffamily1_1711280978480_0.jpg)
 - ![placeoffamily2.jpg](../assets/placeoffamily2_1711280983582_0.jpg) The Team Fortress 2 map cp_standin_final
