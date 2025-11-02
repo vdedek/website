@@ -57,7 +57,37 @@ def generate_responsive_versions(source_path: Path, output_dir: Path, project_sl
         Each value is the relative path from en/projects/ perspective
     """
     
-    # Load and prepare image
+    # Special handling for GIFs - just copy without conversion
+    if source_path.suffix.lower() == '.gif':
+        import shutil
+        # Create output directory
+        output_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Copy GIF to output directory
+        filename = f"{project_slug}-{image_index}{source_path.suffix}"
+        output_path = output_dir / filename
+        shutil.copy2(source_path, output_path)
+        
+        # Return same path for all versions (no responsive versions for GIFs)
+        rel_path = f"../../assets/images/{output_dir.name}/{filename}"
+        
+        # Try to get GIF dimensions
+        try:
+            with Image.open(source_path) as img:
+                width, height = img.size
+        except:
+            width, height = 0, 0
+        
+        print(f"      ✓ GIF copied  {width:4d}×{height:4d}px → {filename} (animation preserved)")
+        
+        return {
+            'thumbnail': {'path': rel_path, 'width': width, 'height': height},
+            'medium': {'path': rel_path, 'width': width, 'height': height},
+            'full': {'path': rel_path, 'width': width, 'height': height},
+            'original_filename': source_path.name
+        }
+    
+    # Load and prepare image (non-GIF)
     img = Image.open(source_path)
     img = exif_transpose(img)
     img = ensure_rgb(img)
@@ -139,30 +169,44 @@ def process_project_images(images: List[str], project_slug: str, source_dir: Pat
         print(f"    Processing image {img_index}/{len(images)}: {img_filename}")
         
         # Check if versions already exist (skip regeneration for speed)
-        # Check for new naming format first
-        full_version_path = project_images_dir / 'full' / f"{project_slug}-{img_index}-full.jpg"
+        # For GIFs, check for .gif extension; for others check .jpg
+        if source.suffix.lower() == '.gif':
+            full_version_path = project_images_dir / f"{project_slug}-{img_index}.gif"
+        else:
+            full_version_path = project_images_dir / 'full' / f"{project_slug}-{img_index}-full.jpg"
         
         if full_version_path.exists():
             print(f"      ↻ Versions exist, skipping...")
             # Return existing paths without regenerating
-            versions = {
-                'thumbnail': {
-                    'path': f"../../assets/images/{project_slug.capitalize()}/thumbnail/{project_slug}-{img_index}-thumbnail.jpg",
-                    'width': 400,
-                    'height': 400
-                },
-                'medium': {
-                    'path': f"../../assets/images/{project_slug.capitalize()}/medium/{project_slug}-{img_index}-medium.jpg",
-                    'width': 1200,
-                    'height': 1200
-                },
-                'full': {
-                    'path': f"../../assets/images/{project_slug.capitalize()}/full/{project_slug}-{img_index}-full.jpg",
-                    'width': 2000,
-                    'height': 2000
-                },
-                'original_filename': img_filename
-            }
+            if source.suffix.lower() == '.gif':
+                # For GIF, all versions point to same file
+                gif_path = f"../../assets/images/{project_slug.capitalize()}/{project_slug}-{img_index}.gif"
+                versions = {
+                    'thumbnail': {'path': gif_path, 'width': 0, 'height': 0},
+                    'medium': {'path': gif_path, 'width': 0, 'height': 0},
+                    'full': {'path': gif_path, 'width': 0, 'height': 0},
+                    'original_filename': img_filename
+                }
+            else:
+                # For JPG, return responsive versions
+                versions = {
+                    'thumbnail': {
+                        'path': f"../../assets/images/{project_slug.capitalize()}/thumbnail/{project_slug}-{img_index}-thumbnail.jpg",
+                        'width': 400,
+                        'height': 400
+                    },
+                    'medium': {
+                        'path': f"../../assets/images/{project_slug.capitalize()}/medium/{project_slug}-{img_index}-medium.jpg",
+                        'width': 1200,
+                        'height': 1200
+                    },
+                    'full': {
+                        'path': f"../../assets/images/{project_slug.capitalize()}/full/{project_slug}-{img_index}-full.jpg",
+                        'width': 2000,
+                        'height': 2000
+                    },
+                    'original_filename': img_filename
+                }
         else:
             # Generate new versions
             versions = generate_responsive_versions(source, project_images_dir, project_slug, img_index)

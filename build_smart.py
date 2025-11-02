@@ -1120,15 +1120,29 @@ def generate_project_from_template(md_file, template_content, project_slug, lang
       </td>
     </tr>
 '''
-                # Add content lines (check if last item needs spacer)
-                for content_idx, content_item in enumerate(section['content']):
-                    is_last = content_idx == len(section['content']) - 1
+                # Group consecutive quotes together, keep body-text separate
+                i = 0
+                while i < len(section['content']):
+                    content_item = section['content'][i]
+                    is_last = i == len(section['content']) - 1
                     cell_class = "content-cell" + (" spacer-after" if is_last and has_spacer_after else "")
                     
                     if content_item['is_quote']:
+                        # Collect all consecutive quotes
+                        quotes_html = ''
+                        while i < len(section['content']) and section['content'][i]['is_quote']:
+                            quote_text = section['content'][i]["text"]
+                            quotes_html += f'<div class="quote">{quote_text}</div>'
+                            i += 1
+                        
+                        # Update cell_class if we've reached the end
+                        is_last = i >= len(section['content'])
+                        cell_class = "content-cell" + (" spacer-after" if is_last and has_spacer_after else "")
+                        
+                        # Output all quotes in one <tr>
                         content_html += f'''    <tr>
       <td class="{cell_class}">
-        <div class="quote">{content_item["text"]}</div>
+        {quotes_html}
       </td>
     </tr>
 '''
@@ -1140,6 +1154,7 @@ def generate_project_from_template(md_file, template_content, project_slug, lang
       </td>
     </tr>
 '''
+                        i += 1
         
         elif item['type'] == 'paragraph':
             # Regular paragraph
