@@ -4,7 +4,10 @@ year:: 2019
 name-en:: Place of Family
 name-cz:: Místo rodiny
 author:: [[Viktor Dedek]]
+materials:: instalation, audio, landscape models, 3D prints
+tag:: #installation #audio #voice #motion-capture #gaming #TeamFortress2 #narrative #3d #childhood #speculative
 featured:: yes
+duration:: 2x9min
 
 - # Exhibition History
   exhibitions::
@@ -17,13 +20,11 @@ featured:: yes
 	  venue-type:: gallery
 	  link:: [National Gallery - Place of Family](https://www.ngprague.cz/en/event/235/introducing-viktor-dedek-the-place-of-family)
 	  curated-by:: Adam Budak
-	  note:: Exhibition includes 3D printed Team Fortress 2 map models (cp_process_final, cp_standin_final) which were later also exhibited at "Other World Is Possible" (2022)
+	  note:: Exhibition included 3D printed Team Fortress 2 map models (cp_process_final, cp_standin_final) which were later also exhibited at "Other World Is Possible" (2022)
 	- Jun-Jul 2022: Group Exhibition "Other World Is Possible", Galerie AVU, Prague
 	  place:: Galerie AVU
 	  town:: Prague
 	  country:: Czech Republic
-	  description:: instalation, audio, landscape models, 3D prints
-	  tag:: #installation #audio #voice #motion-capture #gaming #TeamFortress2 #narrative #3d #childhood #speculative
 - #### Curatorial text by Adam Budak:
   show-first-paragraph:: true
 	- Full-time dreamer and part-time trickster, Viktor Dedek is a quixotic regisseur of polyphonic worlds, suspended between the unlimited fantasy of a computer game and the unruled laws of imagination.
