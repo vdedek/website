@@ -1029,6 +1029,14 @@ def generate_project_from_template(md_file, template_content, project_slug, lang
             if info_parts:
                 info_text += f"<br>{', '.join(info_parts)}"
             
+            # Add curator if present
+            if 'curated-by' in props:
+                info_text += f"<br>Curated by: {props['curated-by']}"
+            
+            # Add actors if present
+            if 'actors' in props:
+                info_text += f"<br>Actors: {props['actors']}"
+            
             # Check for link
             link_url = None
             if 'link' in props:

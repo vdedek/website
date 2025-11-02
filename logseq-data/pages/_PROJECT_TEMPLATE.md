@@ -6,7 +6,6 @@ year:: 2024
 language:: Czech/English
 author:: [[Viktor Dedek]]
 collaboration:: 
-curated-by:: Curator Name
 materials:: materials used
 description:: short description
 duration:: 30min
@@ -52,6 +51,8 @@ series:: euromedieval-saga
 	  town:: City
 	  country:: Czech Republic
 	  venue-type:: gallery space, outdoor
+	  curated-by:: Curator Name
+	  actors:: Actor Name, Actor Name (for performances)
 	  link:: [Exhibition Website](https://example.com)
 	- Jan-Mar 2025: Group Exhibition "Exhibition Title"
 	  start:: [[Jan 15th, 2025]]
@@ -60,6 +61,7 @@ series:: euromedieval-saga
 	  town:: Another City
 	  country:: Country
 	  venue-type:: museum
+	  curated-by:: Curator Name, Co-Curator Name
 	  link:: [Exhibition Website](https://example.com)
 -
 - #### Curatorial text by Curator Name:

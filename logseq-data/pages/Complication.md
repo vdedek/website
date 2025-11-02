@@ -6,7 +6,6 @@ year:: 2018-2019
 language:: Czech
 author:: [[Viktor Dedek]]
 collaboration:: 
-curated-by:: Jonáš Richter
 materials:: 3D sound installation, spoken word, audio essay
 description:: Audio essay exploring the experience of returning to a familiar game after many years and the complications that arise
 duration:: 7min
@@ -30,6 +29,7 @@ series::
 	  town:: Prague
 	  country:: Czech Republic
 	  venue-type:: gallery
+	  curated-by:: Jonáš Richter
 	  link:: [Facebook Event](https://www.facebook.com/events/351605872293466/)
 - #### Curatorial text by Jonáš Richter:
 	- > In his audio-essey, Dedek draws on the experience of a player who after many years returns back to a once-played and familiar game and who is experiencing some complications as is the case with similar returns.

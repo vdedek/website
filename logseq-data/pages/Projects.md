@@ -60,7 +60,7 @@ filters:: {"contents" false}
 		- ##### Exhibited work: *[[Lady in the Lake]]* #performance  #actors
 	-
 	- #### [[The Famous Writer]]. AVU Gallery, Academy of Fine Arts in Prague #exhibition/group
-		- ##### Exhibited work: *[[Dialogue (actors)]]* #performance #actors
+		- ##### Exhibited work: *[[Dialogue (actors)/CZ]]* #performance #actors
 	- #### *[[What's Behind the Wall]]* Jelení Gallery, Center for Contemporary Arts Prague #exhibition/solo #performance #actors #text
 -
 - ### 2016
