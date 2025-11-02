@@ -7,7 +7,7 @@ author:: [[Viktor Dedek]]
 materials:: instalation, audio, landscape models, 3D prints
 tag:: #installation #audio #voice #motion-capture #gaming #TeamFortress2 #narrative #3d #childhood #speculative
 featured:: yes
-duration:: 2x9min
+duration:: 3x9min 
 
 - # Exhibition History
   exhibitions::
