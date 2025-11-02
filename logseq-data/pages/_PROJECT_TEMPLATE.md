@@ -13,7 +13,7 @@ duration:: 30min
 dimensions:: 
 audio-url-cz:: https://soundcloud.com/...
 audio-url-en:: https://soundcloud.com/...
-video-url:: 
+video:: 
 link:: [Exhibition Website](https://example.com)
 press:: [Press Article](https://example.com)
 tag:: #installation #audio #performance #collaboration #writing

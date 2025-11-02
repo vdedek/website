@@ -958,6 +958,10 @@ def generate_project_from_template(md_file, template_content, project_slug, lang
     if 'audio-url-en' in metadata:
         metadata_chips.append(f'<a href="{metadata["audio-url-en"]}" target="_blank" class="metadata-chip metadata-chip-link">{t("listen_to_audio_en")} ↗</a>')
     
+    # Video button (if video exists)
+    if 'video' in metadata and metadata['video']:
+        metadata_chips.append(f'<a href="{metadata["video"]}" target="_blank" class="metadata-chip metadata-chip-link">{t("watch_video")} ↗</a>')
+    
     # Combine all chips into one row
     metadata_html = f'''    <tr>
       <td class="content-cell">

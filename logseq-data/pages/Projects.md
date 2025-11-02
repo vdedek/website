@@ -46,7 +46,7 @@ filters:: {"contents" false}
 	-
 	- #### *[[Place of Family]]*, National Gallery The Traid Fair Palace, Prague #exhibition/solo #actors/voice #audio
 	-
-	- #### *[[Attack by a Boar. The First Part of the Euromedieval Saga]]*. Whiteroom Gallery, Prague #collaboration #exhibition/solo #performance/game
+	- #### *[[The Boar Attack. The first episode of the Euro-medieval saga]]*. Whiteroom Gallery, Prague #collaboration #exhibition/solo #performance/game
 -
 - ### 2018
 	- #### *[[Play Today – Courtyard Ludology]]* Festival m³ / Art In Space, Prague #exhibition/solo #performance  #actors
