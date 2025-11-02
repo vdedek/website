@@ -1,94 +1,95 @@
 {
-  "en": {
-    "lang_code": "en",
-    "html_lang": "en",
-    
-    "common": {
-      "type": "Type",
-      "year": "Year",
-      "materials": "Materials",
-      "duration": "Duration",
-      "listen_to_audio_cz": "Listen to audio (CZ)",
-      "listen_to_audio_en": "Listen to audio (EN)",
-      "exhibition_history": "Exhibition History",
-      "documentation": "Documentation",
-      "related_projects": "Related Projects",
-      "read_more": "Read more",
-      "collapse": "Collapse",
-      "click_to_expand": "Click to expand",
-      "open_gallery": "Open gallery",
-      "close": "Close",
-      "previous": "Previous",
-      "next": "Next",
-      "of": "of"
+    "en": {
+      "lang_code": "en",
+      "html_lang": "en",
+      
+      "common": {
+        "type": "Type",
+        "year": "Year",
+        "materials": "Materials",
+        "duration": "Duration",
+        "listen_to_audio_cz": "Listen to audio (CZ)",
+        "listen_to_audio_en": "Listen to audio (EN)",
+        "exhibition_history": "Exhibition History",
+        "documentation": "Documentation",
+        "related_projects": "Related Projects",
+        "read_more": "Read more",
+        "collapse": "Collapse",
+        "click_to_expand": "Click to expand",
+        "open_gallery": "Open gallery",
+        "close": "Close",
+        "previous": "Previous",
+        "next": "Next",
+        "of": "of"
+      },
+      
+      "metadata": {
+        "author": "Viktor Dedek",
+        "site_title": "Viktor Dedek - Contemporary Artist",
+        "description_suffix": "by Viktor Dedek"
+      },
+      
+      "project_types": {
+        "solo_exhibition": "Solo Exhibition",
+        "group_exhibition": "Group Exhibition",
+        "performance": "Performance",
+        "installation": "Installation",
+        "audio": "Audio",
+        "video": "Video",
+        "writing": "Writing",
+        "solo": "Solo",
+        "group": "Group",
+        "exhibition": "Exhibition"
+      }
     },
     
-    "metadata": {
-      "author": "Viktor Dedek",
-      "site_title": "Viktor Dedek - Contemporary Artist",
-      "description_suffix": "by Viktor Dedek"
-    },
-    
-    "project_types": {
-      "solo_exhibition": "Solo Exhibition",
-      "group_exhibition": "Group Exhibition",
-      "performance": "Performance",
-      "installation": "Installation",
-      "audio": "Audio",
-      "video": "Video",
-      "writing": "Writing",
-      "solo": "Solo",
-      "group": "Group",
-      "exhibition": "Exhibition"
-    }
-  },
-  
-  "cz": {
-    "lang_code": "cz",
-    "html_lang": "cs",
-    
-    "common": {
-      "type": "Typ",
-      "year": "Rok",
-      "materials": "Materiály",
-      "duration": "Délka",
-      "listen_to_audio_cz": "Poslechnout audio (CZ)",
-      "listen_to_audio_en": "Poslechnout audio (EN)",
-      "exhibition_history": "Historie výstav",
-      "documentation": "Dokumentace",
-      "related_projects": "Související projekty",
-      "read_more": "Číst dále",
-      "collapse": "Sbalit",
-      "click_to_expand": "Klikněte pro rozbalení",
-      "open_gallery": "Otevřít galerii",
-      "close": "Zavřít",
-      "previous": "Předchozí",
-      "next": "Další",
-      "of": "z"
-    },
-    
-    "metadata": {
-      "author": "Viktor Dedek",
-      "site_title": "Viktor Dedek - Současný umělec",
-      "description_suffix": "od Viktora Dedka"
-    },
-    
-    "project_types": {
-      "solo_exhibition": "samostatná výstava",
-      "group_exhibition": "skupinová výstava",
-      "performance": "performance",
-      "installation": "instalace",
-      "audio": "audio",
-      "video": "video",
-      "writing": "text",
-      "solo": "samostatná",
-      "group": "skupinová",
-      "exhibition": "výstava",
-      "lecture": "přednáška",
-      "workshop": "workshop",
-      "publication": "publikace",
-      "intervention": "intervence"
+    "cz": {
+      "lang_code": "cz",
+      "html_lang": "cs",
+      
+      "common": {
+        "type": "Typ",
+        "year": "Rok",
+        "materials": "Materiály",
+        "duration": "Délka",
+        "listen_to_audio_cz": "Poslechnout si audio (CZ)",
+        "listen_to_audio_en": "Poslechnout si audio (EN)",
+        "exhibition_history": "Historie výstav",
+        "documentation": "Dokumentace",
+        "related_projects": "Související projekty",
+        "read_more": "Číst dále",
+        "collapse": "Sbalit",
+        "click_to_expand": "Klikněte pro rozbalení",
+        "open_gallery": "Otevřít galerii",
+        "close": "Zavřít",
+        "previous": "Předchozí",
+        "next": "Další",
+        "of": "z"
+      },
+      
+      "metadata": {
+        "author": "Viktor Dedek",
+        "site_title": "Viktor Dedek - současný umělec",
+        "description_suffix": "od Viktora Dedka"
+      },
+      
+      "project_types": {
+        "solo_exhibition": "samostatná výstava",
+        "group_exhibition": "skupinová výstava",
+        "performance": "performance",
+        "installation": "instalace",
+        "audio": "audio",
+        "video": "video",
+        "writing": "text",
+        "solo": "samostatná",
+        "group": "skupinová",
+        "exhibition": "výstava",
+        "lecture": "přednáška",
+        "workshop": "workshop",
+        "publication": "publikace",
+        "intervention": "intervence"
+      }
     }
   }
-}
-
+  
+  
