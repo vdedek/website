@@ -10,7 +10,7 @@ curated-by:: Jonáš Richter
 materials:: 3D sound installation, spoken word, audio essay
 description:: Audio essay exploring the experience of returning to a familiar game after many years and the complications that arise
 duration:: 7min
-audio-url-cz:: https://on.soundcloud.com/hqjYiTgr5YJ3mBra8
+audio-url-cz:: Audio essay | https://on.soundcloud.com/hqjYiTgr5YJ3mBra8
 audio-url-en:: 
 video:: 
 link:: [Facebook Event](https://www.facebook.com/events/351605872293466/)

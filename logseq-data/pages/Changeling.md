@@ -8,7 +8,7 @@ author:: [[Viktor Dedek]]
 materials:: digital photography, audio recording, portable radio
 description:: audiovisual installation, 7 black-and-white photographs, 14-minute audio recording
 duration:: 14min
-audio-url-cz:: https://soundcloud.com/viktor-dedek-106155248/menavec-changeling-radio-cut
+audio-url-cz:: Listen here (CZ) | https://soundcloud.com/viktor-dedek-106155248/menavec-changeling-radio-cut
 tag:: #installation #photography #audio #voice #gaming #narrative #player #speculative #memory #transformation 
 featured:: yes
 

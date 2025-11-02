@@ -449,6 +449,9 @@ def parse_metadata(content):
     metadata = {}
     lines = content.split('\n')
     
+    # Fields that support custom text format: "Text | URL"
+    custom_text_fields = ['audio-url-cz', 'audio-url-en', 'video', 'pdf']
+    
     for line in lines:
         if '::' in line and not line.strip().startswith('-'):
             match = re.match(r'^([a-z-]+)::\s*(.+)$', line.strip())
@@ -457,7 +460,17 @@ def parse_metadata(content):
                 value = match.group(2).strip()
                 # Clean up wiki links [[...]]
                 value = re.sub(r'\[\[([^\]]+)\]\]', r'\1', value)
-                metadata[key] = value
+                
+                # Parse custom text format for specific fields: "Text | URL"
+                if key in custom_text_fields and ' | ' in value:
+                    parts = value.split(' | ', 1)
+                    button_text = parts[0].strip()
+                    url = parts[1].strip()
+                    # Store both text and URL
+                    metadata[key] = url  # Keep URL as main value for backward compatibility
+                    metadata[f'{key}-text'] = button_text  # Store custom text
+                else:
+                    metadata[key] = value
     
     # Parse exhibitions list separately
     exhibitions = parse_exhibitions_list(content)
@@ -942,6 +955,13 @@ def generate_project_from_template(md_file, template_content, project_slug, lang
     if 'year' in metadata:
         metadata_chips.append(f'<span class="metadata-chip">{t("year")}: {metadata["year"]}</span>')
     
+    # Authors (if multiple)
+    if 'author' in metadata:
+        authors = [a.strip() for a in metadata['author'].split(',')]
+        if len(authors) > 1:
+            authors_text = ', '.join(authors)
+            metadata_chips.append(f'<span class="metadata-chip">{t("authors")}: {authors_text}</span>')
+    
     # Materials
     if 'materials' in metadata:
         metadata_chips.append(f'<span class="metadata-chip">{t("materials")}: {metadata["materials"]}</span>')
@@ -954,13 +974,21 @@ def generate_project_from_template(md_file, template_content, project_slug, lang
     
     # Audio button (if audio-url-cz or audio-url-en exists)
     if 'audio-url-cz' in metadata:
-        metadata_chips.append(f'<a href="{metadata["audio-url-cz"]}" target="_blank" class="metadata-chip metadata-chip-link">{t("listen_to_audio_cz")} ↗</a>')
+        button_text = metadata.get('audio-url-cz-text', t("listen_to_audio_cz"))
+        metadata_chips.append(f'<a href="{metadata["audio-url-cz"]}" target="_blank" class="metadata-chip metadata-chip-link"><span class="emoji-icon">🔊</span> {button_text} ↗</a>')
     if 'audio-url-en' in metadata:
-        metadata_chips.append(f'<a href="{metadata["audio-url-en"]}" target="_blank" class="metadata-chip metadata-chip-link">{t("listen_to_audio_en")} ↗</a>')
+        button_text = metadata.get('audio-url-en-text', t("listen_to_audio_en"))
+        metadata_chips.append(f'<a href="{metadata["audio-url-en"]}" target="_blank" class="metadata-chip metadata-chip-link"><span class="emoji-icon">🔊</span> {button_text} ↗</a>')
     
     # Video button (if video exists)
     if 'video' in metadata and metadata['video']:
-        metadata_chips.append(f'<a href="{metadata["video"]}" target="_blank" class="metadata-chip metadata-chip-link">{t("watch_video")} ↗</a>')
+        button_text = metadata.get('video-text', t("watch_video"))
+        metadata_chips.append(f'<a href="{metadata["video"]}" target="_blank" class="metadata-chip metadata-chip-link"><span class="emoji-icon">🎬</span> {button_text} ↗</a>')
+    
+    # PDF button (if pdf exists)
+    if 'pdf' in metadata and metadata['pdf']:
+        button_text = metadata.get('pdf-text', t("read_pdf"))
+        metadata_chips.append(f'<a href="{metadata["pdf"]}" target="_blank" class="metadata-chip metadata-chip-link"><span class="emoji-icon">📄</span> {button_text} ↗</a>')
     
     # Combine all chips into one row
     metadata_html = f'''    <tr>

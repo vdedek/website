@@ -10,7 +10,7 @@ materials:: sandstone, electronics, AI, sound
 description:: sandstone objects, radio transmitter, radio receiver, AI-generated photos, narrative 30min audio
 duration:: 30min
 dimensions:: chair: 120x80x80cm, transmitter boxes: 30x20x15cm each
-audio-url-cz:: https://soundcloud.com/viktor-dedek-106155248/ludomancer-radio-version/s-RvWXt6LwQt0?si=fbbcf1b3f8d4487c97fa9c135abed98a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+audio-url-cz:: Listen here (CZ) | https://soundcloud.com/viktor-dedek-106155248/ludomancer-radio-version/s-RvWXt6LwQt0?si=fbbcf1b3f8d4487c97fa9c135abed98a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
 link:: [RABBIT HOLE: Viktor Dedek - Ludomancer | Výstavy | GOČÁROVA GALERIE (gocarovagalerie.cz)](https://gocarovagalerie.cz/cs/vystavy/rabbit-hole-viktor-dedek-ludomancer)
 press:: [Artalk review](https://artalk.cz/2023/10/31/viktor-dedek-ludomancer/)
 tag:: #installation #object #audio #AI #gaming #literature #narrative #player

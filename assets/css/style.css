@@ -250,7 +250,9 @@ a:hover {
   font-family: times_regular, serif;
   font-size: 14px;
   line-height: 1.4;
-  white-space: nowrap;
+  white-space: normal; /* Allow text wrapping for long content */
+  word-wrap: break-word;
+  max-width: 100%;
   vertical-align: middle;
 }
 
@@ -259,6 +261,12 @@ a:hover {
   font-family: times_b16, serif;
   cursor: pointer;
   transition: border-style 0.1s;
+}
+
+/* Convert emojis to grayscale for retro aesthetic */
+.emoji-icon {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
 }
 
 .metadata-chip-link:visited {

@@ -12,7 +12,7 @@ description:: Collaborative D&D performance installation exploring Euro-medieval
 duration:: 
 audio-url-cz:: 
 audio-url-en:: 
-video:: https://www.youtube.com/watch?v=TKacNktHNDU
+video:: Exhibition documentation | https://www.youtube.com/watch?v=TKacNktHNDU
 link:: [České galerie - Exhibition](https://ceskegalerie.cz/en/vystavy/1590/viktor-dedek-jan-bohac-napadeni-kancem)
 press:: 
 tag:: #installation #performance #D&D #rpg #object #narrative #interactive #collaboration #worldbuilding
