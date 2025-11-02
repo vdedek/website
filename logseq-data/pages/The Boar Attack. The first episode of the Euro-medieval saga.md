@@ -32,7 +32,7 @@ series:: euromedieval-saga
 	  venue-type:: gallery
 	  link:: [České galerie](https://ceskegalerie.cz/en/vystavy/1590/viktor-dedek-jan-bohac-napadeni-kancem)
 -
-- #### Exhibition text by [[Viktor Dedek]] and [[Jan Boháč]]:
+- #### Exhibition text by Viktor Dedek and Jan Boháč:
   show-first-paragraph:: true
 	- At the beginning, we discussed our position in the world, as artists, our situation... Today there are few opportunities to discuss such issues, and yet these are fundamental existential problems that everyone who starts to deal with art today must address. The problems that the contemporary art world has are driving artists into a state of disillusionment, frustration and even stagnation. In spite of the great struggle I feel, it is becoming increasingly difficult to express oneself spontaneously, joyfully within art and, above all, to improve the quality of life for oneself and for those around one in a meaningful way.
 	- It may have been a year or so ago that we reminisced together about the Dungeons & Dragons games and our time spent in its fictional worlds. On the one hand, in the position of the lair master (narrator), it was about creating such worlds, their inhabitants and plot possibilities; on the other hand, in the position of the player, it was about enjoying the unlimited depth of the fictional world. It was a social event for everyone. Through this game it was possible to creatively achieve a certain liberation. Maybe that's why we remembered it in the situation you just described.
@@ -41,14 +41,13 @@ series:: euromedieval-saga
 	- Creating a Eurocentric world is a matter of many small steps. Each step is the realisation of one of the possibilities of what we are able to believe and accept today. An attack by a boar, as opposed to an attack by a dragon or a terrorist, is a true Eurocentric event. The way of responsibly building an alternative world of the Euro-medieval - a building based on taking into account what we like (the Middle Ages, adventure, fiction), but also what we and others are going through in the here and now - is the way of becoming believable to the other - the spectator.
 	- In the exhibition Attack by a Boar, subtitled The First Part of the Euromedieval Saga, the viewer sees eight Euromedieval tables (Halina Pawlowska's table is not there), at which the exhibitors will play out individual adventures during the opening and exhibition (15.1 and 12.2). After playing, the game aids - maps, notes, diaries, dice - remain on the tables. The narrative itself is processed into a soundtrack, which echoes in the exhibition from a white bag full of gold euro coins.
 -
-- Exhibition poster for the opening at Whiteroom Gallery, Prague (2019):
-- ![Exhibition poster](../assets/napadenikancem_1711286772108_0.jpg)
--
 - #### Documentation
-- Opening of "The Boar Attack", Whiteroom Gallery, Prague
+- Opening of "The Boar Attack. The first episode of the Euro-medieval saga", Whiteroom Gallery, Prague
 - ![Documentation photo](../assets/IMG_9831_1711288258340_0.jpg)
-- ![Documentation photo](../assets/IMG_0073_1711288232536_0.jpg)
-- ![Documentation photo](../assets/IMG_0075_1711288237623_0.jpg)
 - ![Documentation photo](../assets/IMG_0083_1711288322470_0.jpg)
-- ![Documentation photo](../assets/IMG_0076_1711288242026_0.jpg)
+- ![Documentation photo](../assets/IMG_0075_1711288237623_0.jpg)
 - ![Documentation photo](../assets/IMG_9486_1711288253050_0.jpg)
+- ![Documentation photo](../assets/IMG_0073_1711288232536_0.jpg)
+- ![Documentation photo](../assets/IMG_0076_1711288242026_0.jpg)
+- Exhibition poster for the opening at Whiteroom Gallery, Prague (2019)
+- ![Exhibition poster](../assets/napadenikancem_1711286772108_0.jpg)
