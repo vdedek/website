@@ -1,0 +1,81 @@
+﻿<body class="work-page">
+  <div class="rain-container" id="rainContainer"></div>
+  <nav class="nav-area">
+    <table class="nav-table" cellspacing="1" cellpadding="0">
+        <td class="nav-cell">
+          <a href="work.html" class="nav-link">
+            <img src="../assets/gif_intro/Lightningfast1.gif" alt="Work" class="nav-gif">
+        <td class="nav-cell">
+          <a href="progress.html" class="nav-link">
+            <img src="../assets/gif_intro/rollingpin_rolling_lg_clr.gif" alt="Progress" class="nav-gif">
+        <td class="nav-cell">
+          <a href="about.html" class="nav-link">
+            <img src="../assets/gif_intro/anm_torch.gif" alt="About" class="nav-gif">
+    <div class="filter-table-wrapper">
+      <div class="scroll-left"></div>
+      <div class="scroll-right"></div>
+      <table class="filter-table" cellspacing="1" cellpadding="0">
+          <td class="filter-cell active" data-filter="selected">Selected Works</td>
+          <td class="filter-cell" data-filter="solo">Solo</td>
+          <td class="filter-cell" data-filter="group">Group</td>
+          <td class="filter-cell" data-filter="collaboration">Collaboration</td>
+          <td class="filter-cell" data-filter="performance">Performance</td>
+          <td class="filter-cell" data-filter="writing">Writing</td>
+          <td class="filter-cell" data-filter="audio">Audio</td>
+          <td class="filter-cell" data-filter="saga">Euromedieval Saga</td>
+  <table class="projects-table" cellspacing="1" cellpadding="0">
+      <td class="year-cell">> 2024-2025</td>
+    <tr class="project-cell visible" data-categories="selected group collaboration performance audio saga">
+        <div class="project-content">
+          <a href="projects/in-the-shadows-of-the-main-character.html" class="project-link">
+            <div class="project-info">
+              <div class="project-header">
+                <div class="project-title-line">
+                  <span class="project-symbol group">â–“</span>
+                  <span class="project-title-text">In the Shadows of the Main Character</span>
+                <div class="project-meta">Group Exhibition, Installation, Performance, Audio, Participatory event</div>
+              <div class="project-preview">
+      <td class="year-cell">> 2024</td>
+    <tr class="project-cell visible" data-categories="selected group audio">
+        <div class="project-content">
+          <a href="projects/changeling.html" class="project-link">
+            <div class="project-info">
+              <div class="project-header">
+                <div class="project-title-line">
+                  <span class="project-symbol group">â–“</span>
+                  <span class="project-title-text">Changeling</span>
+                <div class="project-meta">Group Exhibition, Installation, Audio</div>
+              <div class="project-preview">
+      <td class="year-cell">> 2023</td>
+    <tr class="project-cell visible" data-categories="selected solo group audio">
+        <div class="project-content">
+          <a href="projects/ludomancer.html" class="project-link">
+            <div class="project-info">
+              <div class="project-header">
+                <div class="project-title-line">
+                  <span class="project-symbol solo">â–“</span>
+                  <span class="project-title-text">Ludomancer</span>
+                <div class="project-meta">Solo & Group Exhibition, Installation, Audio</div>
+              <div class="project-preview">
+      <td class="year-cell">> 2021, 2022</td>
+    <tr class="project-cell visible" data-categories="selected collaboration performance saga">
+        <div class="project-content">
+          <a href="projects/skeleton-episode-two-of-the-euromedieval-saga.html" class="project-link">
+            <div class="project-info">
+              <div class="project-header">
+                <div class="project-title-line">
+                  <span class="project-symbol group">â–“</span>
+                  <span class="project-title-text">Skeleton. Episode Two of the Euromedieval Saga</span>
+                <div class="project-meta">Installation, Performance</div>
+              <div class="project-preview">
+      <td class="year-cell">> 2019</td>
+    <tr class="project-cell visible" data-categories="selected solo group audio">
+        <div class="project-content">
+          <a href="projects/place-of-family.html" class="project-link">
+            <div class="project-info">
+              <div class="project-header">
+                <div class="project-title-line">
+                  <span class="project-symbol solo">â–“</span>
+                  <span class="project-title-text">Place of Family</span>
+                <div class="project-meta">Solo & Group Exhibition, Installation, Audio</div>
+              <div class="project-preview">

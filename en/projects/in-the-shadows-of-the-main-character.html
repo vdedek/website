@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>In the Shadows of the Main Character - Viktor Dedek</title>
+  <meta name="description" content="Participatory audio installation exploring embodiment of non-player characters (NPCs) through interactive storytelling.">
+  <meta name="author" content="Viktor Dedek">
+  <meta name="keywords" content="installation, audio, performance, rpg, collaboration, interactive, narrative, worldbuilding, voice, Viktor Dedek, contemporary art, artistic research">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="In the Shadows of the Main Character - Viktor Dedek">
+  <meta property="og:description" content="Participatory audio installation exploring embodiment of non-player characters (NPCs) through interactive storytelling.">
+  <meta property="og:image" content="https://viktordedek.com/assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-1-full.jpg">
+  <meta property="og:url" content="https://viktordedek.com/en/projects/in-the-shadows-of-the-main-character.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="In the Shadows of the Main Character - Viktor Dedek">
+  <meta name="twitter:description" content="Participatory audio installation exploring embodiment of non-player characters (NPCs) through interactive storytelling.">
+  <meta name="twitter:image" content="https://viktordedek.com/assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-1-full.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://viktordedek.com/en/projects/in-the-shadows-of-the-main-character.html">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3FQJZGC5M"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3FQJZGC5M');
+  </script>
+  
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VisualArtwork",
+  "name": "In the Shadows of the Main Character",
+  "creator": {
+    "@type": "Person",
+    "name": "Viktor Dedek",
+    "url": "https://viktordedek.com"
+  },
+  "dateCreated": "2024-2025",
+  "artMedium": "installation, performance, audio, participatory event",
+  "url": "https://viktordedek.com/en/projects/in-the-shadows-of-the-main-character.html",
+  "image": "https://viktordedek.com/assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-1-full.jpg",
+  "description": "Participatory audio installation exploring embodiment of non-player characters (NPCs) through interactive storytelling.",
+  "material": "wooden thrones, bucket of salt, dice, audio instalation, stage lighting, headphones",
+  "workPresented": [
+    {
+      "@type": "ExhibitionEvent",
+      "name": "Mar-Sep 2025: Group Exhibition \"Enter the Room\"",
+      "location": {
+        "@type": "Place",
+        "name": "GHMP Zvon (Dům U Kamenného zvonu)",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Prague",
+          "addressCountry": "Czech Republic"
+        }
+      },
+      "startDate": "Mar 28th, 2025",
+      "endDate": "Sep 14th, 2025"
+    }
+  ]
+}
+  </script>
+  
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body class="work-page project-page">
+  <!-- Rain Container -->
+  <div class="rain-container" id="rainContainer"></div>
+
+  <!-- Gallery Modal -->
+  <div id="galleryModal" class="gallery-modal">
+    <span class="gallery-close">&times;</span>
+    <button class="gallery-nav gallery-prev">&#10094;</button>
+    <button class="gallery-nav gallery-next">&#10095;</button>
+    <div class="gallery-modal-content">
+      <img id="galleryImage" src="" alt="">
+    </div>
+    <div class="gallery-counter">
+      <span id="galleryCounter">1 / 6</span>
+    </div>
+  </div>
+
+  <nav class="nav-area">
+    <table class="nav-table" cellspacing="1" cellpadding="0">
+      <tr>
+        <td class="nav-cell">
+          <a href="../work.html" class="nav-link">
+            <img src="../../assets/gif_intro/Lightningfast1.gif" alt="Work" class="nav-gif">
+          </a>
+        </td>
+        <td class="nav-cell">
+          <a href="../progress.html" class="nav-link">
+            <img src="../../assets/gif_intro/rollingpin_rolling_lg_clr.gif" alt="Progress" class="nav-gif">
+          </a>
+        </td>
+        <td class="nav-cell">
+          <a href="../about.html" class="nav-link">
+            <img src="../../assets/gif_intro/anm_torch.gif" alt="About" class="nav-gif">
+          </a>
+        </td>
+      </tr>
+    </table>
+    
+    <div class="filter-table-wrapper">
+      <div class="scroll-left"></div>
+      <div class="scroll-right"></div>
+      <table class="filter-table" cellspacing="1" cellpadding="0">
+        <tr>
+          <td class="filter-cell">Hidden</td>
+        </tr>
+      </table>
+    </div>
+  </nav>
+
+  <table class="projects-table" cellspacing="1" cellpadding="0">
+    <!-- Project Title -->
+    <tr>
+      <td class="content-cell">
+        <h1 class="project-title">▓ In the Shadows of the Main Character</h1>
+      </td>
+    </tr>
+    <!-- Hero Image -->
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <div class="hero-image" style="margin: 0; padding: 0;" onclick="openGallery(0)">
+          <img src="../../assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-1-full.jpg" alt="In the Shadows of the Main Character hero image" title="Instalation view." style="width: 100%; height: auto; display: block;">
+        </div>
+      </td>
+    </tr>
+    <!-- Project Info -->
+    
+    <tr>
+      <td class="content-cell">
+        <div class="metadata-chips-container">
+          <span class="metadata-chip">Type: Installation, Performance, Audio, Participatory Event</span> <span class="metadata-chip">Year: 2024-2025</span> <span class="metadata-chip">Materials: wooden thrones, bucket of salt, dice, audio instalation, stage lighting, headphones</span> <span class="metadata-chip">Duration: ~45min</span>
+        </div>
+      </td>
+    </tr>
+
+
+        <tr>
+      <td class="content-cell">
+        <h2 class="section-header">Exhibition History</h2>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <a href="https://www.ghmp.cz/vystavy/enter-the-room/" target="_blank" class="metadata-chip metadata-chip-link" style="display: block; text-align: left; padding: 12px 16px; margin: 8px 0;">
+          Mar-Sep 2025: Group Exhibition "Enter the Room"<br>GHMP Zvon (Dům U Kamenného zvonu), Prague, Czech Republic ↗
+        </a>
+      </td>
+    </tr>
+
+    <!-- Text from the catalogue by Sandra Baborovská and Martin Netočný -->
+    <tr>
+      <td class="content-cell">
+        <h2 class="section-header">Text from the catalogue by Sandra Baborovská and Martin Netočný</h2>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <div class="quote">Jan Boháč and Viktor Dedek use gallery institutions to organise participatory events. They construct their scenarios using mechanisms and principles found in Tabletop Role-Playing Games (TTRPG). These events are usually dedicated to identitarian or climate topics, loosely connected to form a systematically developed series called the Eurostředověka saga (Euro-Medieval Saga). Jonáš Richter works with soundtracks and occasionally with moving images. He directs the listener's attention to the relationships between the content of the statements and the contexts in which they are made. He also tests how a statement's meaning is conditioned by its emotional colouring. He shares approaches to the critical analysis of social roles with Boháč and Dedek and occasionally collaborates with them.</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <div class="quote">The installation <em>In the Shadows of the Main Character</em> (2024-2025) occupies one of the rooms at the Stone Bell House. Boháč, Dedek and Richter place a large object—a fragment from the mediated imaginary world and a kind of narrative focal point—at the centre of the room. Around it, six chairs are arranged and equipped with headphones. Each plays a part of an audio recording created during several performances in the same space. The environment is further enhanced by an atmospheric recording that resonates throughout the entire room.</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell spacer-after">
+        <div class="quote">The participatory events that took place several times during the exhibition period are designed to explore the possibilities of embodying non-player characters (NPCs) through interactions between visitors, artists and architectural elements. Per the scenario, those who take part are deprived of their decision-making potential and confronted with the marginal themes and tasks typically encountered by NPCs in various video games. By recording and subsequently reproducing the events in the places where they originally happened, the trio of artists tests the possibilities for mediating these fragile existential shifts.</div>
+      </td>
+    </tr>
+
+    
+    <!-- Documentation Gallery -->
+    <tr>
+      <td class="content-cell">
+        <h2 class="section-header">Documentation</h2>
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="../../assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-2-full.jpg" alt="In the Shadows of the Main Character view 1" title="Thrones with tilted rest." style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(1)">
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="../../assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-3-full.jpg" alt="In the Shadows of the Main Character view 2" title="From the exhibition opening" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(2)">
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="../../assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-4-full.jpg" alt="In the Shadows of the Main Character view 3" title="Guided tour" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(3)">
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="../../assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-5-full.jpg" alt="In the Shadows of the Main Character view 4" title="Session moment" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(4)">
+      </td>
+    </tr>
+    <tr class="project-cell visible">
+      <td style="padding: 0 1px 1px 0;">
+        <img src="../../assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-6-full.jpg" alt="In the Shadows of the Main Character view 5" title="Exhibition exit" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openGallery(5)">
+      </td>
+    </tr>
+
+  
+  <!-- Related Projects Table (Auto-generated) -->
+  <table class="projects-table" cellspacing="1" cellpadding="0">
+    <tr>
+      <td class="content-cell">
+        <h2 class="section-header">Related Projects</h2>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <a href="you-open-your-mouth-and-eye-and-a-feeling-of-fear-grows-in-you-as-the-strong-hands-of-the-executioner-with-the-blue-hood-and-the-golden-hammer-take-hold-of-you.html" class="related-project">
+          <span class="project-title">YOU OPEN YOUR MOUTH AND EYE AND A FEELING OF FEAR GROWS IN YOU AS THE STRONG HANDS OF THE EXECUTIONER WITH THE BLUE HOOD AND THE GOLDEN HAMMER TAKE HOLD OF YOU</span>
+          <span class="project-year">2023</span>
+        </a>
+        <div class="similarity-tags">#interactive, #voice, #performance</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <a href="attack-by-a-boar-the-first-part-of-the-euromedieval-saga.html" class="related-project">
+          <span class="project-title">Attack by a Boar. The First Part of the Euromedieval Saga</span>
+          <span class="project-year">2019</span>
+        </a>
+        <div class="similarity-tags">#interactive, #performance, #rpg</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">
+        <a href="skeleton-episode-two-of-the-euromedieval-saga.html" class="related-project">
+          <span class="project-title">Skeleton. Episode Two of the Euromedieval Saga</span>
+          <span class="project-year">2021, 2022</span>
+        </a>
+        <div class="similarity-tags">#interactive, #performance, #rpg</div>
+      </td>
+    </tr>
+  </table>
+
+
+  <script src="../../assets/js/work.js"></script>
+  <script>
+    // Gallery functionality
+    const galleryImages = [
+      "../../assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-1-full.jpg",
+      "../../assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-2-full.jpg",
+      "../../assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-3-full.jpg",
+      "../../assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-4-full.jpg",
+      "../../assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-5-full.jpg",
+      "../../assets/images/In-the-shadows-of-the-main-character/full/in-the-shadows-of-the-main-character-6-full.jpg"
+    ];
+    
+    let currentImageIndex = 0;
+    const modal = document.getElementById('galleryModal');
+    const modalImg = document.getElementById('galleryImage');
+    const counter = document.getElementById('galleryCounter');
+    
+    function openGallery(index) {
+      currentImageIndex = index;
+      modal.style.display = 'flex';
+      updateGalleryImage();
+    }
+    
+    function updateGalleryImage() {
+      modalImg.src = galleryImages[currentImageIndex];
+      counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+    }
+    
+    document.querySelector('.gallery-close').onclick = function() {
+      modal.style.display = 'none';
+    }
+    
+    document.querySelector('.gallery-prev').onclick = function() {
+      currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateGalleryImage();
+    }
+    
+    document.querySelector('.gallery-next').onclick = function() {
+      currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+      updateGalleryImage();
+    }
+    
+    modal.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+    
+    // Touch/Swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    modal.addEventListener('touchstart', function(event) {
+      touchStartX = event.changedTouches[0].screenX;
+    }, false);
+    
+    modal.addEventListener('touchend', function(event) {
+      touchEndX = event.changedTouches[0].screenX;
+      handleSwipe();
+    }, false);
+    
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swipe left - next image
+          currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+          updateGalleryImage();
+        } else {
+          // Swipe right - previous image
+          currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+          updateGalleryImage();
+        }
+      }
+    }
+  </script>
+</body>
+</html>
+

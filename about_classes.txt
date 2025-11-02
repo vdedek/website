@@ -1,0 +1,117 @@
+﻿<body class="work-page">
+  <div class="rain-container" id="rainContainer"></div>
+  <nav class="nav-area">
+    <table class="nav-table" cellspacing="1" cellpadding="0">
+        <td class="nav-cell">
+          <a href="work.html" class="nav-link">
+            <img src="../assets/gif_intro/Lightningfast1.gif" alt="Work" class="nav-gif">
+        <td class="nav-cell">
+          <a href="progress.html" class="nav-link">
+            <img src="../assets/gif_intro/rollingpin_rolling_lg_clr.gif" alt="Progress" class="nav-gif">
+        <td class="nav-cell">
+          <a href="about.html" class="nav-link">
+            <img src="../assets/gif_intro/anm_torch.gif" alt="About" class="nav-gif">
+  <table class="projects-table" cellspacing="1" cellpadding="0">
+      <td class="content-cell">
+        <div class="section-header">About</div>
+      <td class="content-cell">
+        <div class="body-text">Currently in an underground studio with a peculiar history beneath the Prague's district SmĂ­chov. Abstaining from games, returning to books bit by bit, day-dreaming of forging euro-medieval armor and mixing my own pre-workouts with the help of my elementary school classmates.</div>
+      <td class="content-cell">
+        <div class="body-text">
+      <td class="content-cell">
+        <div class="section-header-with-toggle">
+          <div class="section-header">Wrote about me</div>
+          <button class="toggle-button" data-section="wrote">â–Ľ</button>
+      <td class="content-cell">
+        <div class="quote">Full-time dreamer and part-time trickster, Viktor Dedek is a quixotic regisseur of polyphonic worlds, suspended between the unlimited fantasy of a computer game and the unruled laws of imagination. The artist boldly reaches beyond the performative, towards the multi-sensorial experience of extended reality. Fictive narratives of phantom-like protagonists collide with the visual collages of phantasmagoric sites, loosely based upon a deceiving memory, non-identified cartographies of a lost mind. Dedek's universe is both a utopia of the unknown as well as the comfort zone of the artist's own self-confidence. Guardian of a cognitive labyrinth, the artist leads and misleads the viewer through the avenues of illusion (delusion?) and the theatrics of post-truth. Seemingly hard to grasp and hermetic, his conceptual practice mimics the vocabulary of computer-generated hyper worlds of super-human and alien tactics, challenging the perceptive skills and investigating human (in)ability to memorize, act and imagine. Dedek provokes the viewer, unsettling his/her experience of once familiar reality and setting up a doubt in the given idioms of today's world thus awakening a sensitivity of artificial intelligence and hardware logic of new minds yet to be mastered. Have we already moved to the land of a too well-known and predictable future, or do we keep inhabiting an extreme present of zwischendinge and deselfing? The artist is a post-romantic poet of a technocized reverie, an agent of a revised sublime for the (on-line) age of inevitable humanitarian decline.</div>
+        <div class="body-text" style="font-size: 14px; font-style: italic; margin-top: 10px;">by Adam Budak (2019) as part of the exhibition text for Place of Family</div>
+      <td class="content-cell">
+        <div class="section-header-with-toggle">
+          <div class="section-header">Solo Exhibitions</div>
+          <button class="toggle-button" data-section="solo">â–Ľ</button>
+      <td class="year-cell">> 2023</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2022</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2021</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2019</td>
+      <td class="content-cell">
+      <td class="content-cell">
+      <td class="content-cell">
+      <td class="content-cell">
+      <td class="content-cell">
+      <td class="year-cell">> 2018</td>
+      <td class="content-cell">
+      <td class="content-cell">
+      <td class="content-cell">
+      <td class="year-cell">> 2017</td>
+      <td class="content-cell">
+      <td class="content-cell">
+        <div class="section-header-with-toggle">
+          <div class="section-header">Group Exhibitions</div>
+          <button class="toggle-button" data-section="group">â–Ľ</button>
+      <td class="year-cell">> 2025</td>
+      <td class="content-cell">
+      <td class="content-cell">
+      <td class="year-cell">> 2024</td>
+      <td class="content-cell">
+      <td class="content-cell">
+      <td class="year-cell">> 2023</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2022</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2021</td>
+      <td class="content-cell">
+      <td class="content-cell">
+      <td class="content-cell">
+      <td class="year-cell">> 2020</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2017</td>
+      <td class="content-cell">
+      <td class="content-cell">
+      <td class="year-cell">> 2016</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2015</td>
+      <td class="content-cell">
+      <td class="content-cell">
+      <td class="content-cell">
+        <div class="section-header-with-toggle">
+          <div class="section-header">Education</div>
+          <button class="toggle-button" data-section="education">â–Ľ</button>
+      <td class="year-cell">> 2022â€“2024</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2017â€“2020</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2019</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2018</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2017â€“2018</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2013â€“2017</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2016â€“2017</td>
+      <td class="content-cell">
+      <td class="content-cell">
+        <div class="section-header-with-toggle">
+          <div class="section-header">Publications</div>
+          <button class="toggle-button" data-section="publications">â–Ľ</button>
+      <td class="year-cell">> 2022</td>
+      <td class="content-cell">
+      <td class="content-cell">
+        <div class="section-header-with-toggle">
+          <div class="section-header">Talks & Workshops</div>
+          <button class="toggle-button" data-section="talks">â–Ľ</button>
+      <td class="year-cell">> 2024</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2023</td>
+      <td class="content-cell">
+      <td class="content-cell">
+        <div class="section-header-with-toggle">
+          <div class="section-header">Employment in the Field</div>
+          <button class="toggle-button" data-section="employment">â–Ľ</button>
+      <td class="year-cell">> 2023</td>
+      <td class="content-cell">
+      <td class="year-cell">> 2020â€“2021</td>
+      <td class="content-cell">
