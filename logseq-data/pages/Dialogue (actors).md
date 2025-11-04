@@ -20,6 +20,14 @@ tag:: #actors #performance #public-space
 	  country:: Czech Republic
 	  curated-by:: Sláva Sobotovičová, David Fesl
 	  actors:: Petr Šmíd, Sofie Adamová
+	- Nov 2018: Pokoje Released: Action Stromovka
+	  start:: Nov 15th, 2018
+	  end:: Nov 15th, 2018
+	  place:: Stromovka park
+	  town:: Prague
+	  country:: Czech Republic
+	  curated-by:: Kristýna Péčová
+	  actors:: Sofie Adamová, Viktor Dedek
 -
 - #### About the project
 	- Performance for two actors taking place on the shores of a lake or pond. The actors, who once performed together in a production but haven't seen each other for years, stand on opposite sides of the water surface. The distance is precisely such that they hear the other speaking but cannot understand the words. Only occasionally, when the wind allows, they catch a word or a fragment of a sentence.
