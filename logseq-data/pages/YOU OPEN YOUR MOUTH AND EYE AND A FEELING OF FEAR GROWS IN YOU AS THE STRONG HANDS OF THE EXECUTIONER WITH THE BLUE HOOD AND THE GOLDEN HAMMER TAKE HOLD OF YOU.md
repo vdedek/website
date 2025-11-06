@@ -5,17 +5,17 @@ author:: [[Jan Boháč]], [[Jonáš Richter]], [[Viktor Dedek]]
 year:: 2023
 name-cz:: OTEVÍRÁŠ PUSU A OKO A SÍLÍ V TOBĚ POCIT STRACHU, KDYŽ SE TĚ CHOPILY SILNÉ RUCE KATA S MODROU KUKLOU A ZLATÝM KLADÍVKEM
 exhibitions::
-  - Feb 3, 2024: Group Event "Y: LAN PARTY", Theatre X10, Prague
 
-place:: Theatre X10
-town:: Prague
-country:: Czech Republic
-start:: [[Feb 3rd, 2024]] 
-end:: [[Feb 3rd, 2024]] 
-link:: [Y Events | Y: LAN PARTY | Divadlo X10](https://www.divadlox10.cz/cs/y-events/y-lan-party)
-description:: A 30-minute meditative live sound performance for one person. Based on character creation in RPG games. Transitions into the game. 
-tag:: #performance #audio #voice #rpg #D&D #meditation #transformation #narrative #interactive #collaboration
-
+	- Feb 3, 2024: Group Event "Y: LAN PARTY", Theatre X10, Prague
+	  
+	  place:: Theatre X10
+	  town:: Prague
+	  country:: Czech Republic
+	  start:: [[Feb 3rd, 2024]] 
+	  end:: [[Feb 3rd, 2024]] 
+	  link:: [Y Events | Y: LAN PARTY | Divadlo X10](https://www.divadlox10.cz/cs/y-events/y-lan-party)
+	  description:: A 30-minute meditative live sound performance for one person. Based on character creation in RPG games. Transitions into the game. 
+	  tag:: #performance #audio #voice #rpg #D&D #meditation #transformation #narrative #interactive #collaboration
 - #### Anotation:
 	- Imaginative situation encouraging the abandonment of the self and the settlement of new hyper-identities. Identities created on the ruins of individuality and egoism that left no space dry. Immersive sound design, a fantasy world, a manipulation of the voice, a world under the surface that elevates - and yet the experience is oppressive - a game of non-heroes. Will the familiarity of your voice, the free breathing and your dry hair return? And what about that golden glistening bruise?
 - #### Description:

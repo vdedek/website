@@ -51,14 +51,39 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://viktordedek.com/en/projects/escape-a-search-for-elves-in-the-age-of-computer-games.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://viktordedek.com/en/projects/how-to-make-your-dreams-come-true-using-blender-280.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://viktordedek.com/en/projects/in-the-shadows-of-the-main-character.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://viktordedek.com/en/projects/lady-in-the-lake.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://viktordedek.com/en/projects/ludomancer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://viktordedek.com/en/projects/make-your-dreams-come-backyard-dota.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://viktordedek.com/en/projects/make-your-dreams-come-backyard.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://viktordedek.com/en/projects/place-of-family.html</loc>

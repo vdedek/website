@@ -22,7 +22,7 @@ featured:: no
 	  country:: Czech Republic
 	  venue-type:: gallery space
 	  curated-by:: Dominik Lang, Edith Jeřábková, František Kowolowski
-    link:: https://www.artmap.cz/epizoda-ii-horizont-predmetu-0/
+	   link:: https://www.artmap.cz/epizoda-ii-horizont-predmetu-0/
 - #### Exhibition annotation:
   show-first-paragraph:: true
 	- > Dominik Lang and Edith Jeřábková jointly run the sculpture studio at the Academy of Fine Arts in Prague. They perceive the notion of sculpture as a field of plastic forms, through the mapping and movement within it they understand and develop their own autonomous projects. With great respect for the history of the discipline, their medium is art itself and not just craftsmanship. Similarly, from a position of theory and practice, they are interested in the old or modernist tradition, the expanded field of sculpture and the contemporary simultaneously, including all their spatial assumptions.

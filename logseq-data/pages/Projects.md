@@ -21,7 +21,7 @@ filters:: {"contents" false}
 		-
 	- #### [[Ranger. Episode Three of the Euromedieval Saga]] Hraničář Art Gallery, Ústí nad Labem #collaboration #performance/game
 	-
-	- #### *[[Escape: The Search for Elves in the Age of Computer Games]]* Text and graphic works published in Klima magazine n° 05 – Liquid Futures. Liste Art Fair Basel. #publication
+	- #### *[[Escape: A Search for Elves in the Age of Computer Games]]* Text and graphic works published in Klima magazine n° 05 – Liquid Futures. Liste Art Fair Basel. #publication
 -
 - ### 2021
 	- #### [[X-th Wave, N-th Dosage]]. *[[Make Your Dreams Come Backyard – DotA]]* Technological Centre UMPRUM, Prague #exhibition/group

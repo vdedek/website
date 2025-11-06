@@ -276,6 +276,10 @@ def find_related_projects(project_metadata: Dict, all_projects: List[Tuple[Path,
         if other_metadata.get('name-en') == project_metadata.get('name-en'):
             continue
         
+        # Skip Czech localized versions (___CZ files) to avoid duplicates
+        if '___CZ' in md_file.stem or '___cz' in md_file.stem:
+            continue
+        
         other_tags = extract_tags_from_metadata(other_metadata)
         if not other_tags:
             continue
@@ -284,9 +288,14 @@ def find_related_projects(project_metadata: Dict, all_projects: List[Tuple[Path,
         
         if similarity > 0.2:  # Minimum threshold
             matching_tags = list(set(project_tags) & set(other_tags))
+            # Get project name - decode URL-encoded filename if name-en not available
+            project_name = other_metadata.get('name-en')
+            if not project_name:
+                project_name = urllib.parse.unquote(md_file.stem)
+            
             similarities.append({
-                'name': other_metadata.get('name-en', md_file.stem),
-                'slug': slugify(other_metadata.get('name-en', md_file.stem)),
+                'name': project_name,
+                'slug': slugify(project_name),
                 'year': other_metadata.get('year', 'TBD'),
                 'similarity': similarity,
                 'matching_tags': matching_tags
@@ -932,10 +941,11 @@ def generate_project_from_template(md_file, template_content, project_slug, lang
     print(f"  Copying images...")
     image_paths = copy_images_to_project_folder(sections['images'], project_slug_en) if sections['images'] else []
     
-    # Format type nicely
-    if 'solo' in project_type:
+    # Format type nicely - check exhibition-context first
+    exhibition_context = metadata.get('exhibition-context', '').lower()
+    if 'solo' in project_type or 'solo' in exhibition_context:
         type_display = 'Solo Exhibition'
-    elif 'group' in project_type:
+    elif 'group' in project_type or 'group' in exhibition_context:
         type_display = 'Group Exhibition'
     else:
         type_display = project_type.title()
@@ -947,8 +957,22 @@ def generate_project_from_template(md_file, template_content, project_slug, lang
     def t(key, category='common'):
         return translate(key, language, translations, category)
     
-    # Type - translate the type string
-    type_display_translated = translate_project_type(project_type, language, translations)
+    # Type - combine exhibition-context with type if needed
+    if exhibition_context:
+        if 'solo' in exhibition_context:
+            combined_type = 'Solo Exhibition'
+        elif 'group' in exhibition_context:
+            combined_type = 'Group Exhibition'
+        else:
+            combined_type = project_type
+    elif 'solo' in project_type:
+        combined_type = 'Solo Exhibition'
+    elif 'group' in project_type:
+        combined_type = 'Group Exhibition'
+    else:
+        combined_type = project_type
+    
+    type_display_translated = translate_project_type(combined_type, language, translations)
     metadata_chips.append(f'<span class="metadata-chip">{t("type")}: {type_display_translated}</span>')
     
     # Year
@@ -962,10 +986,17 @@ def generate_project_from_template(md_file, template_content, project_slug, lang
             authors_text = ', '.join(authors)
             metadata_chips.append(f'<span class="metadata-chip">{t("authors")}: {authors_text}</span>')
     
-    # Materials
+    # Publication info (for texts/articles)
+    if 'published-in' in metadata:
+        metadata_chips.append(f'<span class="metadata-chip">{t("published_in")}: {metadata["published-in"]}</span>')
+    if 'publisher' in metadata:
+        metadata_chips.append(f'<span class="metadata-chip">{t("publisher")}: {metadata["publisher"]}</span>')
+    
+    # Materials (for installations/physical works)
     if 'materials' in metadata:
         metadata_chips.append(f'<span class="metadata-chip">{t("materials")}: {metadata["materials"]}</span>')
-    elif 'description' in metadata:
+    elif 'description' in metadata and 'published-in' not in metadata:
+        # Only use description as materials fallback if it's not a publication
         metadata_chips.append(f'<span class="metadata-chip">{t("materials")}: {metadata["description"]}</span>')
     
     # Duration
@@ -1842,8 +1873,9 @@ def generate_work_html():
     print(f"✓ Successfully processed {len(projects_data)} projects")
     print()
     
-    # Sort by year (descending)
-    projects_data.sort(key=lambda x: str(x['year']), reverse=True)
+    # Sort by year (descending), then by name (ascending) for projects in same year
+    # This ensures Episode II comes before Episode I, and newer projects come first
+    projects_data.sort(key=lambda x: (str(x['year']), x['name']), reverse=True)
     
     # Group by year
     years = {}
