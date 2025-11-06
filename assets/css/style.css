@@ -720,7 +720,7 @@ body.work-page {
   .scroll-right {
     position: fixed;
     width: 35px;
-    height: 44px;
+    height: 34px;
     z-index: 1003;
     display: none;
     pointer-events: none;
@@ -745,10 +745,10 @@ body.work-page {
   }
 
   .filter-cell {
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-width: 2px;
-    font-size: 18px;
-    height: 44px;
+    font-size: 14px;
+    height: 34px;
     box-sizing: border-box;
     white-space: nowrap;
     background: var(--retro-bg);
